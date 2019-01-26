@@ -5,6 +5,7 @@ const data = [
     {
         Company: "YeEt DoRiTe",
         id: 0,
+        icon: "/images/image.png",
         tasks0: [
             {
                 Title:"yeet the yote",
@@ -152,13 +153,21 @@ class CompanyProfile extends Component {
                 <div className="ui grid container page-height">
                     <div className="three wide teal column">
                         <h4 className="ui header">Company Profile Navbar</h4>
+                        <div className="ui container">
+                            Add search features
+                        </div>
                     </div>
                     <div className="thirteen wide white column scroll-list">
+                    <div className="ui inline container">
                     {data.map((company) => (
-                        <h2 className="ui header">{company.Company}</h2>
+                        <h1 className="ui header" style={{display: "inline-block"}}>{company.Company}</h1>
                     ))}
+                    {data.map((company) => (
+                        <img className="ui image right floated" src={company.icon} style={{display: "inline-block"}} height="50px" width="50px"></img>
+                    ))}
+                    </div>
                         <div className="ui placeholder segment">
-                            <div className="ui two column stackable left aligned grid">
+                            <div className="ui two column stackable center aligned grid">
                                 <div className="ui vertical divider">Or</div>
                                 <div className="middle aligned row">
                                     <div className="column">
