@@ -27,7 +27,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <nav class="ui secondary pointing menu">
+            <nav class="ui secondary pointing menu teal inverted" style={{position: "relative", zIndex: 10}}>
               <NavLink className="item" activeClassName="item active" to="/" exact>Home</NavLink>
               <NavLink className="item" activeClassName="item active" to="/quiz/">Quiz</NavLink>
               <NavLink className="item" activeClassName="item active" to="/ChallengeList/">ChallengeList</NavLink>
