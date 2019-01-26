@@ -5,7 +5,7 @@ const data = [
     {
         Company: "YeEt DoRiTe",
         id: 0,
-        tasks: [
+        tasks0: [
             {
                 Title:"yeet the yote",
                 Wage: 123,
@@ -15,6 +15,110 @@ const data = [
                 Date: "1/11/19"
             },
             {
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            }
+        ],
+        tasks1: [
+            {
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            }
+        ],
+        tasks2: [
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            }
+        ],
+        tasks3: [
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
                 Title:"yeet the yote",
                 Wage: 123,
                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
@@ -53,9 +157,8 @@ class CompanyProfile extends Component {
                     {data.map((company) => (
                         <h2 className="ui header">{company.Company}</h2>
                     ))}
-                   
                         <div className="ui placeholder segment">
-                            <div className="ui two column stackable center aligned grid">
+                            <div className="ui two column stackable left aligned grid">
                                 <div className="ui vertical divider">Or</div>
                                 <div className="middle aligned row">
                                     <div className="column">
@@ -85,10 +188,10 @@ class CompanyProfile extends Component {
                                 </div>
                             </div>
                         </div>
-                        <h2 className="ui header">Current Tasks</h2>
+                        <h2 className="ui header">Open Tasks</h2>
                         <div className="ui divider"></div>
-                            <div className="ui three stackable cards centered">
-                            {data[0].tasks.map((d) => (
+                            <div className="ui three stackable cards left">
+                            {data[0].tasks0.map((d) => (
                                 <div className="card">
                                     <div className="content">
                                         <div className="header">{d.Title}</div>
@@ -101,17 +204,107 @@ class CompanyProfile extends Component {
                                         </div>
                                     </div>
                                     <div className="extra content">
-                                            <div className = "ui two buttons">
-                                                <div class="ui attached button">
-                                                    <i class="newspaper outline icon"></i>
-                                                    View Task
-                                                </div>
-                                                <div class="ui attached button">
-                                                    <i class="edit icon"></i>
-                                                    Edit Task
-                                                </div>
+                                        <div className = "ui two buttons">
+                                            <div class="ui attached button">
+                                                <i class="newspaper outline icon"></i>
+                                                View Task
+                                            </div>
+                                            <div class="ui attached button">
+                                                <i class="edit icon"></i>
+                                                Edit Task
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <h2 className="ui header">Pending Applications for Tasks</h2>
+                        <div className="ui divider"></div>
+                            <div className="ui three stackable cards left">
+                            {data[0].tasks1.map((d) => (
+                                <div className="card">
+                                    <div className="content">
+                                        <div className="header">{d.Title}</div>
+                                        <div className="meta">
+                                            <span className="price left floated">${d.Wage}</span>
+                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                        </div>
+                                        <div className="description ui">
+                                        <span >{d.Description}</span>
+                                        </div>
+                                    </div>
+                                    <div className="extra content">
+                                        <div className = "ui two buttons">
+                                            <div class="ui attached button">
+                                                <i class="newspaper outline icon"></i>
+                                                View Task
+                                            </div>
+                                            <div class="ui attached button">
+                                                <i class="edit icon"></i>
+                                                Edit Task
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <h2 className="ui header">Ongoing Tasks</h2>
+                        <div className="ui divider"></div>
+                            <div className="ui three stackable cards left">
+                            {data[0].tasks2.map((d) => (
+                                <div className="card">
+                                    <div className="content">
+                                        <div className="header">{d.Title}</div>
+                                        <div className="meta">
+                                            <span className="price left floated">${d.Wage}</span>
+                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                        </div>
+                                        <div className="description ui">
+                                        <span >{d.Description}</span>
+                                        </div>
+                                    </div>
+                                    <div className="extra content">
+                                        <div className = "ui two buttons">
+                                            <div class="ui attached button">
+                                                <i class="newspaper outline icon"></i>
+                                                View Task
+                                            </div>
+                                            <div class="ui attached button">
+                                                <i class="edit icon"></i>
+                                                Edit Task
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <h2 className="ui header">Completed Tasks</h2>
+                        <div className="ui divider"></div>
+                            <div className="ui three stackable cards left">
+                            {data[0].tasks3.map((d) => (
+                                <div className="card">
+                                    <div className="content">
+                                        <div className="header">{d.Title}</div>
+                                        <div className="meta">
+                                            <span className="price left floated">${d.Wage}</span>
+                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                        </div>
+                                        <div className="description ui">
+                                        <span >{d.Description}</span>
+                                        </div>
+                                    </div>
+                                    <div className="extra content">
+                                        <div className = "ui two buttons">
+                                            <div class="ui attached button">
+                                                <i class="newspaper outline icon"></i>
+                                                View Task
+                                            </div>
+                                            <div class="ui attached button">
+                                                <i class="edit icon"></i>
+                                                Edit Task
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
