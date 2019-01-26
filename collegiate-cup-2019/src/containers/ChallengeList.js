@@ -5,13 +5,36 @@ const data = [
         title: "A",
         price: 123,
         time: 12
-    },
-    {
+    }, {
         title: "B",
         price: 222,
         time: 5
+    }, {
+        title: "C",
+        price: 1,
+        time: 7
+    }, {
+        title: "A",
+        price: 123,
+        time: 12
+    }, {
+        title: "B",
+        price: 222,
+        time: 5
+    }, {
+        title: "C",
+        price: 1,
+        time: 7
     },
     {
+        title: "A",
+        price: 123,
+        time: 12
+    }, {
+        title: "B",
+        price: 222,
+        time: 5
+    }, {
         title: "C",
         price: 1,
         time: 7
@@ -21,12 +44,14 @@ const data = [
 class ChallengeList extends Component {
   render() {
     return (
-      <div className="ChallengeList">
-        <div className="ui grid container">
+      <div className="ChallengeList pattern-bg">
+        <div className="ui grid container page-height">
             <div className="four wide teal column">
-                Filter Challenges
+                <h4 className="ui header">FILTER</h4>
             </div>
-            <div className="eight wide column">
+            <div className="twelve wide white column scroll-list">
+                <h2 className="ui header">My Projects and Challenges</h2>
+                <div className="ui divider"></div>
                 <div className="ui items">
                     {data.map((d) => (
                         <div className="item">
