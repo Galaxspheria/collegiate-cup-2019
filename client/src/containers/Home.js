@@ -41,6 +41,14 @@ class Home extends Component {
                   </div>
                 </div>
               </div>
+              <div className="item">
+                  <h4>I am a...</h4>
+                  <div className="ui buttons">
+                    <button className="ui teal button">High School Student</button>
+                    <div className="or"></div>
+                    <button className="ui teal button">Small Business Owner</button>
+                  </div>
+              </div>
             </div>
           </div>
           <BGParticles/>
