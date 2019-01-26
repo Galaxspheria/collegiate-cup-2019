@@ -7,29 +7,29 @@ class Login extends Component {
             <div className="ui middle aligned center aligned grid page-height container">
                 <div className="column centered">
                     <div className="width-cap">
-                        <h2 class="ui teal image header">
-                        <div class="content">
+                        <h2 className="ui teal image header">
+                        <div className="content">
                             Sign in to your account
                         </div>
                         </h2>
-                        <form class="ui large form">
-                        <div class="ui teal segment">
-                            <div class="field">
-                            <div class="ui left icon input">
-                                <i class="user icon"></i>
+                        <form className="ui large form">
+                        <div className="ui teal segment">
+                            <div className="field">
+                            <div className="ui left icon input">
+                                <i className="user icon"></i>
                                 <input type="text" name="email" placeholder="E-mail address"></input>
                             </div>
                             </div>
-                            <div class="field">
-                            <div class="ui left icon input">
-                                <i class="lock icon"></i>
+                            <div className="field">
+                            <div className="ui left icon input">
+                                <i className="lock icon"></i>
                                 <input type="password" name="password" placeholder="Password"></input>
                             </div>
                             </div>
-                            <div class="ui fluid large teal submit button">Login</div>
+                            <div className="ui fluid large teal submit button">Login</div>
                         </div>
                         </form>
-                        <div class="ui message">
+                        <div className="ui message">
                         New student?&nbsp;&nbsp;<a href="#">Enter signup code!</a>
                         </div>
                     </div>
