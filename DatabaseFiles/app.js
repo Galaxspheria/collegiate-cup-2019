@@ -39,7 +39,7 @@ var config = {
             Email: email,
             Description: description,
             Location: location,
-            PowerLevel: parseInt(Math.random() * 35 + 5),
+            ExperienceLevel: parseInt(Math.random() * 35 + 5),
             ProfilePic: "/images/image.png"
         }).then(function() {
             console.log("Status saved!");
