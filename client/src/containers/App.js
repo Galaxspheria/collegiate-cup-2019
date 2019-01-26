@@ -43,7 +43,7 @@ class App extends Component {
               <NavLink className="item" activeClassName="item active" to="/AddTask/">AddTask</NavLink>
               <NavLink className="item" activeClassName="item active" to="/CompanyHome/">CompanyHome</NavLink>
               <NavLink className="item" activeClassName="item active" to="/Login/">Login</NavLink>
-              <NavLink className="item" activeClassName="item active" to="/WriteReport/">Login</NavLink>
+              <NavLink className="item" activeClassName="item active" to="/WriteReport/">WriteReport</NavLink>
 
               <div className="right menu">
                 <a className="ui item">
