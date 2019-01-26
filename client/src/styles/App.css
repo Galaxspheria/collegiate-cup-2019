@@ -20,3 +20,8 @@
 .white {
   background-color: white;
 }
+
+.vertical-padded {
+  padding-bottom: 3%;
+  padding-top: 2%;
+}
