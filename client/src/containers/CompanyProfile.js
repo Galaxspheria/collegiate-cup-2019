@@ -4,32 +4,37 @@ import React, { Component } from 'react';
 const data = [
     {
         Company: "YeEt DoRiTe",
-        Title:"yeet the yote",
-        Wage: 123,
-        Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-        Location: "",
-        Category: "Website Design",
-        Date: "1/11/19"
-    },
-    {
-        Company: "YeEt DoRiTe",
-        Title:"yeet the yote",
-        Wage: 123,
-        Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-        Location: "",
-        Category: "Website Design",
-        Date: "1/11/19"
-    },
-    {
-        Company: "YeEt DoRiTe",
-        Title:"yeet the yote",
-        Wage: 123,
-        Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-        Location: "",
-        Category: "Website Design",
-        Date: "1/11/19"
+        id: 0,
+        tasks: [
+            {
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            },
+            {
+                Company: "YeEt DoRiTe",
+                Title:"yeet the yote",
+                Wage: 123,
+                Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+                Location: "",
+                Category: "Website Design",
+                Date: "1/11/19"
+            }
+        ]
     }
 ]
+
 const companyName = [
     {Company: "YeEt DoRiTe"}
 ]
@@ -45,7 +50,7 @@ class CompanyProfile extends Component {
                         <h4 className="ui header">Company Profile Navbar</h4>
                     </div>
                     <div className="thirteen wide white column scroll-list">
-                    {companyName.map((company) => (
+                    {data.map((company) => (
                         <h2 className="ui header">{company.Company}</h2>
                     ))}
                    
@@ -58,9 +63,9 @@ class CompanyProfile extends Component {
                                         <i className="file outline icon"></i>
                                         Add New Task
                                         </div>
-                                        <div className="ui primary button">
+                                        <a className="ui primary button" href={"/AddTask"}>
                                         Create
-                                        </div>
+                                        </a>
                                     </div>
                                     <div className="column">
                                         <div className="ui icon header">
@@ -83,7 +88,7 @@ class CompanyProfile extends Component {
                         <h2 className="ui header">Current Tasks</h2>
                         <div className="ui divider"></div>
                             <div className="ui three stackable cards centered">
-                            {data.map((d) => (
+                            {data[0].tasks.map((d) => (
                                 <div className="card">
                                     <div className="content">
                                         <div className="header">{d.Title}</div>
