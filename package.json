@@ -2,7 +2,7 @@
   "name": "collegiate-cup-2019",
   "version": "0.1.0",
   "scripts": {
-    "client": "cd collegiate-cup-2019 && yarn start",
+    "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
