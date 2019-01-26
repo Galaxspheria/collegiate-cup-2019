@@ -14,22 +14,24 @@ class AddTask extends Component {
         <div className="AddTask">
             <div className="ui center container">
                 <div className="ui form">
-                    <div className="two fields">
+                    <div className="three fields">
                         <div className="field">
                             <label>Task Title</label>
                             <input type="text" placeholder="Task Title"></input>
                         </div>
-                        <div className="ui form">
-                            <div class="field">
-                                <label>Category</label>
-                                <select class="ui search dropdown">
-                                    <option value="">Select Category</option>
-                                    {categories.map((category)=> (
-                                        <option value={category}>{category}</option>
-                                    ))}
-                                </select>
-                            </div>
-                            </div>
+                        <div className="field">
+                            <label>Category</label>
+                            <select class="ui search dropdown">
+                                <option value="">Select Category</option>
+                                {categories.map((category)=> (
+                                    <option value={category}>{category}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="field">
+                            <label>Wage ($)</label>
+                            <input type="text" placeholder="Wage for completing task"></input>
+                        </div>
                     </div>
                     <div className="field">
                         <label>Quick Description</label>
