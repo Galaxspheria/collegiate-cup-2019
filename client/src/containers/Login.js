@@ -4,16 +4,16 @@ class Login extends Component {
   render() {
     return (
         <div className="Login pattern-bg">
-            <div className="ui middle aligned center aligned grid page-height">
-                <div class="column centered">
-                    <div class="row centered">
+            <div className="ui middle aligned center aligned grid page-height container">
+                <div className="column centered">
+                    <div className="width-cap">
                         <h2 class="ui teal image header">
                         <div class="content">
-                            Log-in to your account
+                            Sign in to your account
                         </div>
                         </h2>
                         <form class="ui large form">
-                        <div class="ui stacked segment">
+                        <div class="ui teal segment">
                             <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
@@ -30,7 +30,7 @@ class Login extends Component {
                         </div>
                         </form>
                         <div class="ui message">
-                        New student? <a href="#">Enter sign up code</a>
+                        New student?&nbsp;&nbsp;<a href="#">Enter signup code!</a>
                         </div>
                     </div>
                 </div>
