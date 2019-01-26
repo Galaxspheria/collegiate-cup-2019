@@ -1,34 +1,6 @@
 import React, { Component } from 'react';
 import firebase from "../components/Firebase";
-
-const students = [
-  {
-      FirstName: "George",
-      LastName: "Burdell",
-      Email: "georgepburdell@gatech.edu",
-      ExperienceLevel: 1,
-      ProfilePic: "/images/image.png", 
-      id: 0
-  },
-  {
-    FirstName: "Werk",
-    LastName: "Better",
-    Email: "work.better@ccup.com",
-    ExperienceLevel: 5,
-    ProfilePic: "/images/image.png", 
-    id: 1, 
-    description: "I luv winning",
-    location: "Atlanta"
-  },
-  {
-    FirstName: "Garage",
-    LastName: "techsquare",
-    Email: "techsquare@gmail.com",
-    ExperienceLevel: 2,
-    ProfilePic: "/images/image.png", 
-    id: 2
-  }
-]
+import { Link } from "react-router-dom";
 
 class StudentList extends Component {
     constructor(props) {
@@ -74,12 +46,12 @@ class StudentList extends Component {
 
     render() {
         return (
-            <div className="StudentList">
+            <div className="StudentList pattern-bg page-height">
                 <div className="ui center container">
                     <div className="ui link cards">
                         {this.state.users.map((s) => (
                             // @TODO: replace the href with the real server link
-                            <a key={s.id} className="card" href={"http://localhost:3000/StudentProfile/" + s.id}>
+                            <Link key={s.id} className="card" to={"/StudentProfile/" + s.id}>
                                 <div className="image">
                                     <img src={s.ProfilePic}></img>
                                 </div>
@@ -99,7 +71,7 @@ class StudentList extends Component {
                                         {s.Location}
                                     </span>
                                 </div>
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>
