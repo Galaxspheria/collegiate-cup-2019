@@ -39,7 +39,7 @@ var config = {
             Email: email,
             Description: description,
             Location: location,
-            ExperienceLevel: parseInt(Math.random() * 35 + 5),
+            PowerLevel: parseInt(Math.random() * 35 + 5),
             ProfilePic: "/images/image.png"
         }).then(function() {
             console.log("Status saved!");
@@ -49,40 +49,13 @@ var config = {
 
         addMyTasks(collectRef);
         addMySkills(collectRef);
+    generateId();
 })
-
-
-
-        var citiesRef = firestore.collection("cities");
-
-        citiesRef.doc("SF").set({
-            name: "San Francisco", state: "CA", country: "USA",
-            capital: false, population: 860000,
-            regions: ["west_coast", "norcal"] });
-        citiesRef.doc("LA").set({
-            name: "Los Angeles", state: "CA", country: "USA",
-            capital: false, population: 3900000,
-            regions: ["west_coast", "socal"] });
-        citiesRef.doc("DC").set({
-            name: "Washington, D.C.", state: null, country: "USA",
-            capital: true, population: 680000,
-            regions: ["east_coast"] });
-        citiesRef.doc("TOK").set({
-            name: "Tokyo", state: null, country: "Japan",
-            capital: true, population: 9000000,
-            regions: ["kanto", "honshu"] });
-        citiesRef.doc("BJ").set({
-            name: "Beijing", state: null, country: "China",
-            capital: true, population: 21500000,
-            regions: ["jingjinji", "hebei"] });
-
-        var docRef = firestore.collection("cities");
-
-        docRef.get().then((snapshot) => {
-            snapshot.docs.forEach(doc => {
-                console.log("Document data:", doc.data().population);
-            })
-        }) ;
+        // docRef.get().then((snapshot) => {
+        //     snapshot.docs.forEach(doc => {
+        //         console.log("Document data:", doc.data().population);
+        //     })
+        // }) ;
         // {
         //     if (doc.exists) {
         //             console.log("Document data:", doc.data());
@@ -99,19 +72,28 @@ var config = {
             Title: "Web Developer",
             Description: "Looking for a student to add an 'about us' page to the company website",
             Company: "Target",
-            Location: "Atlanta, GA"
+            Location: "Atlanta, GA",
+            Wage: "$150",
+            Category: "Website Design",
+            ID: generateId()
         });
         doc.collection("MyTasks").doc("Task2").set({
             Title: "Java Programmer",
             Description: "Looking for a student to create a sorting algorithm to manage our inventory",
             Company: "Dan and Linda's Fine Wines",
-            Location: "Loganville, GA"
+            Location: "Loganville, GA",
+            Wage: "$50",
+            Category: "Android App Development",
+            ID: generateId()
         });
         doc.collection("MyTasks").doc("Task3").set({
             Title: "UI Developer",
             Description: "Looking for a student to improve the UI of our current software",
             Company: "Shrewsbury Youth and Family Services",
-            Location: "Buford, GA"
+            Location: "Buford, GA",
+            Wage: "$120",
+            Category: "Data Processing",
+            ID: generateId()
         });
   }
 
@@ -137,6 +119,14 @@ var config = {
         doc.collection("MySkills").doc("MyPlatforms").set({
             Platforms: [platforms[skill1], platforms[skill2], platforms[skill3]]
         });
+        
+      
+  }
 
-
+  function generateId() {
+    var string = ""
+    for(var i = 0; i < 15; i++) {
+        string += String.fromCharCode(65 + parseInt(Math.random() * 60));
+    }
+    console.log(string);
   }
