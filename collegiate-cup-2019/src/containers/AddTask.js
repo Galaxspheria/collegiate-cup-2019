@@ -32,13 +32,13 @@ class AddTask extends Component {
                     <label>Wage</label><br></br>
                     <div className="ui labeled input">
                         <label for="wage" class="ui label"><i className="dollar icon"></i></label>
-                        <input type="number" placeholder="Wage" id="wage"></input>
+                        <input type="number" placeholder="Wage" id="wage" min="0"></input>
                     </div>
                     
                     <br></br><label>Service Hours</label><br></br>
                     <div className="ui labeled input">
                         <label for="wage" class="ui label"><i className="clock icon"></i></label>
-                        <input type="number" placeholder="Wage" id="wage"></input>
+                        <input type="number" placeholder="Wage" id="wage" min="0"></input>
                     </div>
                     <div className="field">
                         <label>Quick Description</label>
