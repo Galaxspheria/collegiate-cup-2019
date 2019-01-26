@@ -14,7 +14,7 @@ class AddTask extends Component {
         <div className="AddTask">
             <div className="ui center container">
                 <div className="ui form">
-                    <div className="three fields">
+                    <div className="two fields">
                         <div className="field">
                             <label>Task Title</label>
                             <input type="text" placeholder="Task Title"></input>
@@ -28,10 +28,17 @@ class AddTask extends Component {
                                 ))}
                             </select>
                         </div>
-                        <div className="field">
-                            <label>Wage ($)</label>
-                            <input type="text" placeholder="Wage for completing task"></input>
-                        </div>
+                    </div>
+                    <label>Wage</label><br></br>
+                    <div className="ui labeled input">
+                        <label for="wage" class="ui label"><i className="dollar icon"></i></label>
+                        <input type="number" placeholder="Wage" id="wage"></input>
+                    </div>
+                    
+                    <br></br><label>Service Hours</label><br></br>
+                    <div className="ui labeled input">
+                        <label for="wage" class="ui label"><i className="clock icon"></i></label>
+                        <input type="number" placeholder="Wage" id="wage"></input>
                     </div>
                     <div className="field">
                         <label>Quick Description</label>
