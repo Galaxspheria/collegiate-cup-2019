@@ -25,7 +25,7 @@ class AddTask extends Component {
                                 <select class="ui search dropdown">
                                     <option value="">Select Category</option>
                                     {categories.map((category)=> (
-                                        <option value="AF">{category}</option>
+                                        <option value={category}>{category}</option>
                                     ))}
                                 </select>
                             </div>
