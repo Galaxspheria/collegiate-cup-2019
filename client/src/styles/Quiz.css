@@ -3,7 +3,7 @@
     flex-shrink: 0;
 }
 
-.code-output {
+.code-output, .code-output-final {
     width: 50%;
     display: inline-block;
     padding: 2%;
@@ -12,6 +12,13 @@
     color: #F8F8F2;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
     border-left: #3E3D32 solid 1px;
+    overflow-y: scroll;
+}
+
+.code-output-final {
+    width: 100%;
+    display: block;
+    margin-top: 2%;
 }
 
 .code-run {
@@ -19,6 +26,17 @@
     background: none;
     border: none;
     color: #A6E22E;
+    transition: ease-in-out 300ms;
+    outline: none !important;
+    cursor: pointer;
+}
+
+.code-run:hover {
+    transform: translateX(5px);
+}
+
+.code-error, .failed-text {
+    color: #F92672;
 }
 
 .quiz-flex {
@@ -26,4 +44,5 @@
     background-color: #272822;
     padding-top: 2%;
     padding-bottom: 2%;
+    max-height: calc(500px + 4%);
 }
