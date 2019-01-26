@@ -1,16 +1,19 @@
 {
-  "name": "collegiate-cup-2019",
+  "name": "collegiate-cup-2019-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "browserify-fs": "^1.0.0",
     "firebase": "^5.8.1",
     "react": "^16.7.0",
+    "react-ace": "^6.3.2",
     "react-dom": "^16.7.0",
     "react-firebase": "^2.2.8",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3"
   },
+  "proxy": "http://localhost:5000/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

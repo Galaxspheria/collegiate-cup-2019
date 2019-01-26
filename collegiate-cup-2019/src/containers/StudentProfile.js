@@ -4,9 +4,11 @@ class StudentProfile extends Component {
   render() {
     return (
         <div className="StudentProfile">
-          <div class="ui equal width centered grid">
-              <div className="column">
-                <img src="/images/image.png" height="300px" width="300px"></img>
+          <div class="ui equal width centered grid container">
+              <div className="four wide column">
+                <div className="ui image">
+                  <img src="/images/image.png"/>
+                </div>
               </div>
               <div class="twelve wide column">
                 <div class="ui segment">

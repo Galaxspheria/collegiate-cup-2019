@@ -1,0 +1,29 @@
+.code-editor {
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.code-output {
+    width: 50%;
+    display: inline-block;
+    padding: 2%;
+    flex-shrink: 0;
+    background-color: #272822;
+    color: #F8F8F2;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    border-left: #3E3D32 solid 1px;
+}
+
+.code-run {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #A6E22E;
+}
+
+.quiz-flex {
+    display: flex;
+    background-color: #272822;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
