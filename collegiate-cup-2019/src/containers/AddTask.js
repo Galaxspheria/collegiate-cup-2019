@@ -19,17 +19,26 @@ class AddTask extends Component {
                             <label>Task Title</label>
                             <input type="text" placeholder="Task Title"></input>
                         </div>
-                        <div className="ui form">
-                            <div class="field">
-                                <label>Category</label>
-                                <select class="ui search dropdown">
-                                    <option value="">Select Category</option>
-                                    {categories.map((category)=> (
-                                        <option value={category}>{category}</option>
-                                    ))}
-                                </select>
-                            </div>
-                            </div>
+                        <div className="field">
+                            <label>Category</label>
+                            <select class="ui search dropdown">
+                                <option value="">Select Category</option>
+                                {categories.map((category)=> (
+                                    <option value={category}>{category}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+                    <label>Wage</label><br></br>
+                    <div className="ui labeled input">
+                        <label for="wage" class="ui label"><i className="dollar icon"></i></label>
+                        <input type="number" placeholder="Wage" id="wage" min="0"></input>
+                    </div>
+                    
+                    <br></br><label>Service Hours</label><br></br>
+                    <div className="ui labeled input">
+                        <label for="wage" class="ui label"><i className="clock icon"></i></label>
+                        <input type="number" placeholder="Wage" id="wage" min="0"></input>
                     </div>
                     <div className="field">
                         <label>Quick Description</label>
