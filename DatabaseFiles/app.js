@@ -13,7 +13,7 @@ var config = {
   firebase.initializeApp(config);
   var firestore = firebase.firestore();
 
-  var numUsers = 0;
+  var numUsers = 1;
   const outputHeader = document.querySelector("#mainTitleLabel");
   const firstNameTextField = document.querySelector("#firstNameText");
   const lastNameTextField = document.querySelector("#lastNameText");
@@ -39,6 +39,7 @@ var config = {
             Email: email,
             Description: description,
             Location: location,
+            PowerLevel: parseInt(Math.random() * 35 + 5),
             ProfilePic: "/images/image.png"
         }).then(function() {
             console.log("Status saved!");
@@ -50,7 +51,7 @@ var config = {
         addMySkills(collectRef);
 })
 
-        
+
 
         var citiesRef = firestore.collection("cities");
 
@@ -136,6 +137,6 @@ var config = {
         doc.collection("MySkills").doc("MyPlatforms").set({
             Platforms: [platforms[skill1], platforms[skill2], platforms[skill3]]
         });
-        
-      
+
+
   }
