@@ -30,6 +30,10 @@ const data = [
         Date: "1/11/19"
     }
 ]
+const companyName = [
+    {Company: "YeEt DoRiTe"}
+]
+
 // make a pending applications section
 class CompanyProfile extends Component {
   render() {
@@ -41,43 +45,38 @@ class CompanyProfile extends Component {
                         <h4 className="ui header">Company Profile Navbar</h4>
                     </div>
                     <div className="thirteen wide white column scroll-list">
+                    {companyName.map((company) => (
+                        <h2 className="ui header">{company.Company}</h2>
+                    ))}
+                   
                         <div className="ui placeholder segment">
-                            <div className="ui three column stackable center aligned grid">
+                            <div className="ui two column stackable center aligned grid">
                                 <div className="ui vertical divider">Or</div>
-                                    <div className="middle aligned row">
-                                        <div className="column">
-                                            <div className="ui icon header">
+                                <div className="middle aligned row">
+                                    <div className="column">
+                                        <div className="ui icon header">
+                                        <i className="file outline icon"></i>
+                                        Add New Task
+                                        </div>
+                                        <div className="ui primary button">
+                                        Create
+                                        </div>
+                                    </div>
+                                    <div className="column">
+                                        <div className="ui icon header">
+                                        <i className="search icon"></i>
+                                        Find Students
+                                        </div>
+                                        <div className="field">
+                                        <div className="ui search">
+                                            <div className="ui icon input">
+                                            <input className="prompt" type="text" placeholder="Search names, skills, ..."></input>
                                             <i className="search icon"></i>
-                                            Find Students
                                             </div>
-                                            <div className="field">
-                                            <div className="ui search">
-                                                <div className="ui icon input">
-                                                <input className="prompt" type="text" placeholder="Search names, skills, ..."></input>
-                                                <i className="search icon"></i>
-                                                </div>
-                                                <div className="results"></div>
-                                            </div>
-                                            </div>
+                                            <div className="results"></div>
                                         </div>
-                                        <div className="column">
-                                            <div className="ui icon header">
-                                            <i className="file outline icon"></i>
-                                            Add New Task
-                                            </div>
-                                            <div className="ui primary button">
-                                            Create
-                                            </div>
                                         </div>
-                                        <div className="column">
-                                            <div className="ui icon header">
-                                            <i className="file outline icon"></i>
-                                            Add New Task
-                                            </div>
-                                            <div className="ui primary button">
-                                            Create
-                                            </div>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
