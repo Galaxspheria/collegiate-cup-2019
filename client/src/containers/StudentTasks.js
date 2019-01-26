@@ -217,7 +217,7 @@ class StudentTasks extends Component {
                                     </div>
                                     <div className="ui right attached button red">
                                     <i className="ban icon"></i>
-                                            Unapply
+                                            Cancel App
                                     </div>
                                 </div>
                             </div>
