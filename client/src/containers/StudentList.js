@@ -95,7 +95,7 @@ class StudentList extends Component {
                                         {s.ExperienceLevel}
                                     </span>
                                     <span>
-                                        <i className="map icon"></i>
+                                        <i className="map pin icon"></i>
                                         {s.Location}
                                     </span>
                                 </div>
