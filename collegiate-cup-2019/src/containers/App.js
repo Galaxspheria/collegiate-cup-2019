@@ -18,6 +18,7 @@ import CompanyTasks from './CompanyTasks';
 import StudentList from './StudentList';
 import AddTask from './AddTask';
 import CompanyHome from './CompanyHome';
+import Login from './Login';
 
 class App extends Component {
   render() {
@@ -40,6 +41,7 @@ class App extends Component {
               <NavLink className="item" activeClassName="item active" to="/StudentList/" >StudentList</NavLink>
               <NavLink className="item" activeClassName="item active" to="/AddTask/">AddTask</NavLink>
               <NavLink className="item" activeClassName="item active" to="/CompanyHome/">CompanyHome</NavLink>
+              <NavLink className="item" activeClassName="item active" to="/Login/">Login</NavLink>
 
               <div className="right menu">
                 <a className="ui item">
@@ -61,6 +63,7 @@ class App extends Component {
             <Route path="/CompanyTasks/" component={CompanyTasks} />
             <Route path="/AddTask/" exact component={AddTask} />
             <Route path="/CompanyHome/" component={CompanyHome} />
+            <Route path="/Login/" component={Login} />
 
           </div>
         </Router>
