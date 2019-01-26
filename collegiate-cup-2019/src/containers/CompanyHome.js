@@ -5,6 +5,9 @@ class CompanyHome extends Component {
     return (
         <div className="CompanyHome">
             CompanyHome
+            <div>
+              
+            </div>
         </div>
     );
   }

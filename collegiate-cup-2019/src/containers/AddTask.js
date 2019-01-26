@@ -4,7 +4,7 @@ class AddTask extends Component {
   render() {
     return (
         <div className="AddTask">
-            AddTask
+          Add Task
         </div>
     );
   }
