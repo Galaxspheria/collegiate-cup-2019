@@ -48,10 +48,10 @@ class StudentList extends Component {
         return (
             <div className="StudentList pattern-bg page-height">
                 <div className="ui center container">
-                    <div className="ui link cards">
+                    <div className="ui link four stackable cards">
                         {this.state.users.map((s) => (
                             // @TODO: replace the href with the real server link
-                            <Link key={s.id} className="card" to={"/StudentProfile/" + s.id}>
+                            <Link key={s.id} className="fluid card" to={"/StudentProfile/" + s.id}>
                                 <div className="image">
                                     <img src={s.ProfilePic}></img>
                                 </div>
