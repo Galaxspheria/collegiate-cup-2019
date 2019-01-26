@@ -33,6 +33,38 @@ const currentProjects = [
 }
 ]
 
+const PendingProjects = [
+    {
+        Company: "Company Name",
+        Title:"Title",
+        Wage: 123,
+        Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+        Location: "",
+        Category: "Website Design",
+        Date: "1/11/19"
+        
+    },
+    {
+      Company: "Company Name",
+      Title:"Title",
+      Wage: 123,
+      Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+      Location: "",
+      Category: "Website Design",
+      Date: "1/11/19"
+      
+  },
+  {
+    Company: "Company Name",
+    Title:"Title",
+    Wage: 123,
+    Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+    Location: "",
+    Category: "Website Design",
+    Date: "1/11/19"
+    
+  }
+  ]
 const PossibleProjects = [
     {
         Company: "Company Name",
@@ -147,8 +179,8 @@ class StudentTasks extends Component {
                                 </div>
                             </div>
                             <div className="extra content">
-                                <div class="ui bottom attached button centered">
-                                <i class="newspaper outline icon"></i>
+                                <div className="ui bottom attached button centered">
+                                <i className="newspaper outline icon"></i>
                                         View Task
                                 </div>
                             </div>
@@ -158,7 +190,40 @@ class StudentTasks extends Component {
                 
             </div>
             <h2 className="ui header">Pending Applications:</h2>
-                <div className="ui divider"></div>
+            <div className="ui divider"></div>
+                <div className="ui three stackable cards centered">
+                    {PendingProjects.map((d) => (
+                        <div className="ui card">
+                            <div className="ui content">
+                                <h4 className="ui header left aligned" style={{display: "inline-block"}}>
+                                    {d.Title}
+                                </h4>
+                                <h4 className="ui right floated header" style={{display: "inline-block"}}>
+                                    {d.Company}
+                                </h4>
+                                <div className="meta">
+                                    <span className="price left floated">${d.Wage}</span>
+                                    <span className="stay right floated">Posted On: {d.Date} </span>
+                                </div>
+                                <div className="description ui">
+                                    <span >{d.Description}</span>
+                                </div>
+                            </div>
+                            <div className="extra content">
+                                <div className="ui buttons bottom attached">
+                                    <div className="ui left attached button">
+                                    <i className="newspaper outline icon"></i>
+                                            View Task
+                                    </div>
+                                    <div className="ui right attached button red">
+                                    <i className="ban icon"></i>
+                                            Unapply
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
                 <h2 className="ui header">Open Tasks:</h2>
                 <div className="ui divider"></div>
@@ -182,7 +247,7 @@ class StudentTasks extends Component {
                                         <i class="newspaper icon"></i>
                                         View
                                     </div>
-                                    <div class="ui button">
+                                    <div class="ui green button">
                                         <i class="paper plane icon"></i>
                                         Apply
                                     </div>
