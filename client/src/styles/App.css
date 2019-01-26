@@ -30,3 +30,23 @@
   max-width: 25%;
   margin: auto;
 }
+
+.particle-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-color: #F2F2F2;
+}
+
+.particle-window {
+  position: relative;
+  z-index: 1;
+}
+
+.highlight {
+  color: #00b5ad;
+  font-weight: bold;
+}

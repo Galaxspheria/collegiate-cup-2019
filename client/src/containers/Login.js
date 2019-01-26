@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import BGParticles from '../components/BGParticles';
 
 class Login extends Component {
   render() {
     return (
-        <div className="Login pattern-bg">
-            <div className="ui middle aligned center aligned grid page-height container">
+        <div className="Login">
+            <div className="ui middle aligned center aligned grid page-height container particle-window">
                 <div className="column centered">
                     <div className="width-cap">
                         <h2 className="ui teal image header">
                         <div className="content">
-                            Sign in to your account
+                            Sign In
                         </div>
                         </h2>
                         <form className="ui large form">
@@ -35,6 +36,7 @@ class Login extends Component {
                     </div>
                 </div>
             </div>
+            <BGParticles/>
         </div>
     );
   }
