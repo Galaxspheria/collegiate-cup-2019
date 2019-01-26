@@ -48,6 +48,11 @@ class AddTask extends Component {
                         <label>Skills</label>
                         <textarea rows="2" placeholder="Separate skills with commas"></textarea>
                     </div>
+                    <div class="ui buttons">
+                        <button class="ui button">Cancel</button>
+                        <div class="or"></div>
+                        <button class="ui positive button">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
