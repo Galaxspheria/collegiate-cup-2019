@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
 const data = [
-  {
-      Company: "YeEt DoRiTe",
-      Title:"yeet the yote",
-      Wage: 123,
-      Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-      Location: "",
-      Category: "Website Design",
-      Date: "1/11/19"
-      
-  },
-  {
-    Company: "YeEt DoRiTe",
-    Title:"yeet the yote",
-    Wage: 123,
-    Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-    Location: "",
-    Category: "Website Design",
-    Date: "1/11/19"
-    
-},
-{
-  Company: "YeEt DoRiTe",
-  Title:"yeet the yote",
-  Wage: 123,
-  Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-  Location: "",
-  Category: "Website Design",
-  Date: "1/11/19"
-  
-}
+    {
+        Company: "YeEt DoRiTe",
+        Title:"yeet the yote",
+        Wage: 123,
+        Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+        Location: "",
+        Category: "Website Design",
+        Date: "1/11/19"
+    },
+    {
+        Company: "YeEt DoRiTe",
+        Title:"yeet the yote",
+        Wage: 123,
+        Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+        Location: "",
+        Category: "Website Design",
+        Date: "1/11/19"
+    },
+    {
+        Company: "YeEt DoRiTe",
+        Title:"yeet the yote",
+        Wage: 123,
+        Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
+        Location: "",
+        Category: "Website Design",
+        Date: "1/11/19"
+    }
 ]
 class CompanyTasks extends Component {
   render() {
