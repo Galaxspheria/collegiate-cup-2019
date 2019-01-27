@@ -73,10 +73,10 @@ class ChallengeList extends Component {
     return (
       <div className="ChallengeList pattern-bg">
         <div className="ui grid container page-height">
-            <div className="four wide teal column">
+            <div className="three wide teal column">
                 <h4 className="ui header">FILTER</h4>
             </div>
-            <div className="twelve wide white column scroll-list">
+            <div className="thirteen wide white column scroll-list">
                 <h2 className="ui header">My Challenges</h2>
                 <div className="ui divider"></div>
                 <div className="ui items">
