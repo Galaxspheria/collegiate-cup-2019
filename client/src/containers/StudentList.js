@@ -49,13 +49,15 @@ class StudentList extends Component {
         return (
             <div className="StudentList pattern-bg page-height">
                 <div className="ui center container">
-                <div class="ui search">
-                    <div class="ui icon input">
-                        <input class="prompt" type="text" placeholder="Common passwords..."></input>
-                        <i class="search icon"></i>
+                    <div className="field">
+                        <div className="ui search">
+                            <div className="ui icon input">
+                            <input className="prompt" type="text" placeholder="Search names, skills, ..."></input>
+                            <i className="search icon"></i>
+                            </div>
+                            <div className="results"></div>
+                        </div>
                     </div>
-                    <div class="results"></div>
-                </div>
                     <div className="ui link four stackable cards">
                         {this.state.users.map((s) => (
                             // @TODO: replace the href with the real server link
