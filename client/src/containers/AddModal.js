@@ -59,7 +59,7 @@ class AddModal extends Component {
             return res
         })
         .then((res) => {
-            this.props.history.push("/task/profile/" + res.id)
+            this.props.history.push("/profile/task/" + res.id)
         });
         
     };

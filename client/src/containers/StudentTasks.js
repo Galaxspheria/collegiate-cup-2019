@@ -231,13 +231,15 @@ class StudentTasks extends Component {
             var onProjects = []
             for (var i = 0; i < tasks.length; i++) {
                 console.log(student.TaskIDs, tasks[i])
+                if (student.TaskIDs.includes(tasks[i].id)) {
                     console.log("hehe")
                     if (tasks[i].AcceptedUser === "Sa871ME92peR91C6X") {
                         onProjects.push(tasks[i])
                     } else if (tasks[i].AppliedUsers.includes("Sa871ME92peR91C6X")) {
                         console.log("mega yee")
                         appliedProjects.push(tasks[i])
-                    } else if (tasks[i].Status === "Open" || tasks[i].Status === "Pending") {
+                    } 
+                } else if (tasks[i].Status === "Open" || tasks[i].Status === "Pending") {
                     openProjects.push(tasks[i])
                 }
                 
@@ -249,6 +251,8 @@ class StudentTasks extends Component {
             })
         }
     }
+
+
   render() {
     return (
       <div className="ChallengeList pattern-bg">
@@ -280,9 +284,9 @@ class StudentTasks extends Component {
                                 </div>
                             </div>
                             <div className="extra content">
-                                <div className="ui bottom attached button centered">
-                                <i className="newspaper outline icon"></i>
-                                        View Task
+                                <div className="ui bottom attached button centered" onClick={(e) => this.props.history.push("/profile/"+d.id)}>
+                                    <i className="newspaper outline icon"></i>
+                                    View Task
                                 </div>
                             </div>
                         </div>
@@ -312,7 +316,7 @@ class StudentTasks extends Component {
                             </div>
                             <div className="extra content">
                                 <div className="ui buttons bottom attached">
-                                    <div className="ui left attached button">
+                                    <div className="ui left attached button" onClick={(e) => this.props.history.push("/profile/task/"+d.id)}>
                                     <i className="newspaper outline icon"></i>
                                             View Task
                                     </div>
@@ -344,11 +348,11 @@ class StudentTasks extends Component {
                                 </div>
                                 
                                 <div class="ui vertical labeled icon buttons right floated">
-                                    <div class="ui button">
+                                    <div class="ui button" onClick={(e) => this.props.history.push("/profile/task/"+d.id)}>
                                         <i class="newspaper icon"></i>
                                         View
                                     </div>
-                                    <div class="ui green button">
+                                    <div class="ui green button" onClick={(e) => this.apply(d)}>
                                         <i class="paper plane icon"></i>
                                         Apply
                                     </div>

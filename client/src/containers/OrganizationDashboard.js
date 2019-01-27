@@ -2,150 +2,6 @@ import React, { Component } from 'react';
 import AddModal from './AddModal';
 import firebase from "../components/Firebase";
 
-// Make sure to only pull data from the database that matches this company
-// const data = [
-//     {
-//         Company: "YeEt DoRiTe",
-//         id: 0,
-//         icon: "/images/image.png",
-//         tasks0: [
-//             {
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ],
-//         tasks1: [
-//             {
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ],
-//         tasks2: [
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ],
-//         tasks3: [
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ]
-//     }
-// ]
-
-// const companyName = [
-//     {Company: "YeEt DoRiTe"}
-// ]
-
 // make a pending applications section
 class OrganizationDashboard extends Component {
     constructor(props) {
@@ -340,7 +196,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>
@@ -370,7 +226,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>
@@ -400,7 +256,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>
@@ -430,7 +286,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>
