@@ -5,6 +5,7 @@ class StudentProfile extends Component {
   constructor(props) {
     super(props);
     this.ref = firebase.firestore().collection('Users').doc(this.props.match.params.id);
+    console.log();
     this.unsubscribe = null;
     this.state = {}
   }
@@ -23,7 +24,6 @@ class StudentProfile extends Component {
   }
 
   render() {
-    console.log(this.state.user)
     return (
         <div className="StudentProfile pattern-bg page-height">
           {this.state.user?
@@ -37,17 +37,19 @@ class StudentProfile extends Component {
                   <div class="ui segment">
                   <h2>{this.state.user.FirstName + " " + this.state.user.LastName}</h2>
                   <div class="ui divider"></div>
-                  <h3>High School:</h3> {this.state.user.HighSchool}
+                  <i className="pencil icon"></i> {this.state.user.HighSchool}
                   <br></br>
-                  Location: {this.state.user.Location}
+                  <i className="map pin icon"></i> {this.state.user.Location}
                   <br></br>
-                  Power Level: {this.state.user.PowerLevel}
+                  <i className="bolt icon"></i> {this.state.user.PowerLevel}
                   <br></br>
-                  Skills: {this.state.user.Skills.map((item) =>
+                  <i className="envelope outline icon"></i> {this.state.user.Email}
+                  <br></br>
+                  <h4>Bio:</h4> {this.state.user.Description}
+                  <br></br>
+                  <h4>Skills:</h4> {this.state.user.Skills.map((item) =>
                         <div class="ui label yellow">{item}</div>
                   )}
-                  <br></br>
-                  Bio: {this.state.user.Description}
                   </div>
                 </div>
             </div>
