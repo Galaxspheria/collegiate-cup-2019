@@ -156,7 +156,7 @@ function createDefaultUser() {
 createDefaultCompany();
 function createDefaultCompany() {
     const companyRef = firestore.collection("Companies");
-        companyRef.doc("Ca871ME9#2peR91C6X")({
+        companyRef.doc("Ca871ME9#2peR91C6X").set({
             Name: "Google",
             Description: "Make science fiction a reality",
             Website: "www.google.com",
@@ -165,7 +165,7 @@ function createDefaultCompany() {
             Location: "Athens, GA"
         })
         .then(function(docRef) {
-            console.log("Document written ");
+            console.log("Default Company Document written ");
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
