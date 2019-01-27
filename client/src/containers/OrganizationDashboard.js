@@ -150,36 +150,24 @@ import firebase from "../components/Firebase";
 class OrganizationDashboard extends Component {
     constructor(props) {
         super(props);
-        this.ref = firebase.firestore().collection('Companies').doc("XZygot9u4OrHMDUemhtA");
+        this.orgRef = firebase.firestore().collection('Companies').doc("XUO9afmO8dmrSqVfBmYC");
+        this.taskRef = firebase.firestore().collection('Tasks');
         this.unsubscribe = null;
-        this.state = {}
+        this.state = {
+            open: [],
+            pending: [],
+            in_progress: [],
+            completed: []
+        }
       }
     
       componentDidMount() {
         const that = this;
-        this.ref.get().then(function (doc) {
+        this.unsubscribe = this.taskRef.onSnapshot(this.onCollectionUpdate);
+        this.orgRef.get().then(function (doc) {
           if (doc.exists) {
-            
-            var dataIn = firebase.firestore().collection('Companies').doc("XZygot9u4OrHMDUemhtA").collection("Tasks")
-            var task0, task1, task2, task3
-            dataIn = {Task: doc.data().collection()}
-            console.log(dataIn)
-            for (var i = 0; i < dataIn.Task.length; i++) {
-                console.log("YET")
-                if (dataIn.Tasks[i].Status == "open") {
-                    task0.concat(dataIn.Tasks[i])
-                    console.log("here")
-                } else if (dataIn.Tasks[i].Status == "pending") {
-                    task1.concat(dataIn.Tasks[i])
-                } else if (dataIn.Tasks[i].Status == "in_progress") {
-                    task2.concat(dataIn.Tasks[i])
-                } else if (dataIn.Tasks[i].Status == "completed") {
-                    task3.concat(dataIn.Tasks[i])
-                }
-            }
- 
-            that.setState({company: doc.data(), open: task0, pending: task1, in_progress: task2, completed: task3 })
-            console.log(that.state)
+            that.setState({company: doc.data()})
+            that.filterTasks(null, doc.data())
           } else {
             console.log("No such document!"); // TODO: 404
           }
@@ -187,6 +175,76 @@ class OrganizationDashboard extends Component {
           console.log("Error getting document:", error);
         });
       }
+
+      onCollectionUpdate = (querySnapshot) => {
+        const allTasks = [];
+        querySnapshot.forEach((doc) => {
+            const {
+                AcceptedUser,
+                AppliedUsers,
+                Category,
+                Description,
+                CompanyName,
+                DateCreated,
+                ServiceHours,
+                Skills,
+                Status,
+                Title,
+                Wage
+            } = doc.data();
+            allTasks.push({
+                id: doc.id,
+                doc, // DocumentSnapshot,
+                AcceptedUser,
+                AppliedUsers,
+                Category,
+                Description,
+                CompanyName,
+                DateCreated,
+                ServiceHours,
+                Skills,
+                Status,
+                Title,
+                Wage
+            });
+        });
+        this.setState({
+            allTasks
+        });
+        this.filterTasks(allTasks, null)
+    }
+
+    filterTasks(t, c) {
+        var tasks = t || this.state.allTasks
+        var company = c || this.state.company
+        if (tasks && company) {
+            var task0 = []
+            var task1 = []
+            var task2 = []
+            var task3 = []
+
+            for (var i = 0; i < tasks.length; i++) {
+                if (company.TaskIDs.includes(tasks[i].id)) {
+                    if (tasks[i].Status === "Open") {
+                        task0.push(tasks[i])
+                    } else if (tasks[i].Status === "Pending") {
+                        task1.push(tasks[i])
+                    } else if (tasks[i].Status === "In_progress") {
+                        task2.push(tasks[i])
+                    } else if (tasks[i].Status === "Completed") {
+                        task3.push(tasks[i])
+                    }
+                }
+                
+            }
+            this.setState({
+                open: task0,
+                pending: task1,
+                in_progress: task2,
+                completed: task3
+            })
+        }
+    }
 
   render() {
     return (
@@ -263,7 +321,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))} */}
+                            ))}
                         </div>
                         <h2 className="ui header">Pending Applications for Tasks</h2>
                         <div className="ui divider"></div>
@@ -293,7 +351,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))} */}
+                            ))}
                         </div>
                         <h2 className="ui header">Ongoing Tasks</h2>
                         <div className="ui divider"></div>
@@ -323,7 +381,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))} */}
+                            ))}
                         </div>
                         <h2 className="ui header">Completed Tasks</h2>
                         <div className="ui divider"></div>
@@ -353,7 +411,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))} */}
+                            ))}
                         </div>
                     </div>
                 </div>

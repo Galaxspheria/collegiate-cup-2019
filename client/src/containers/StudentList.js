@@ -52,8 +52,8 @@ class StudentList extends Component {
                     <div className="field">
                         <div className="ui search">
                             <div className="ui icon input">
-                            <input className="prompt" type="text" placeholder="Search names, skills, ..."></input>
-                            <i className="search icon"></i>
+                            <input type="text" placeholder="Task Title"></input>
+                            {/* <i className="search icon"></i> */}
                             </div>
                             <div className="results"></div>
                         </div>
