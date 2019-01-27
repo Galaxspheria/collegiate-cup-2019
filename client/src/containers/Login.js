@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BGParticles from '../components/BGParticles';
+import LoginModal from './LoginModal';
 
 class Login extends Component {
   render() {
