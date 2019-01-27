@@ -16,6 +16,7 @@ import StudentList from './StudentList';
 import Login from './Login';
 import WriteReport from './WriteReport';
 import TaskProfile from './TaskProfile';
+import StudentResources from './StudentResources';
 
 import {UserContext} from './UserContext';
 
@@ -49,6 +50,7 @@ class App extends Component {
                 <NavLink className="item" activeClassName="item active" to="/profile/student/" >Student List</NavLink>
                 <NavLink className="item" activeClassName="item active" to="/login/">Login</NavLink>
                 <NavLink className="item" activeClassName="item active" to="/WriteReport/">WriteReport</NavLink>
+                <NavLink className="item" activeClassName="item active" to="/StudentResources/">StudentResources</NavLink>
 
                 <div className="right menu">
                   <a className="ui item">
@@ -70,6 +72,7 @@ class App extends Component {
               <Route path="/login/" component={Login} />
               <Route path="/WriteReport/" component={WriteReport} />
               <Route path="/profile/task/:id" component={TaskProfile} />
+              <Route path="/StudentResources/" component={StudentResources} />
 
             </div>
           </Router>
