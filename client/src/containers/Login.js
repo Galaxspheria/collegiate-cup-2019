@@ -45,14 +45,16 @@ class Login extends Component {
                                 <p>{this.state.error}</p>
                                 </div>
                             :null}
-                            <h2 className="ui teal image header">
-                            <div className="content">
-                                Sign In
-                            </div>
-                            </h2>
+                            
                             <form className="ui large form">
+                            
                             <div className="ui teal segment">
                                 <div className="field">
+                                <h2 className="ui teal image header">
+                                    <div className="content">
+                                        Sign In
+                                    </div>
+                                </h2>
                                 <div className="ui left icon input">
                                     <i className="user icon"></i>
                                     <input type="text" name="email" placeholder="E-mail address"></input>
