@@ -157,7 +157,8 @@ class OrganizationDashboard extends Component {
             open: [],
             pending: [],
             in_progress: [],
-            completed: []
+            completed: [],
+            filteredTasks: []
         }
       }
     
@@ -209,7 +210,8 @@ class OrganizationDashboard extends Component {
             });
         });
         this.setState({
-            allTasks
+            allTasks,
+            filteredTasks: allTasks
         });
         this.filterTasks(allTasks, null)
     }
@@ -246,6 +248,36 @@ class OrganizationDashboard extends Component {
         }
     }
 
+    search() {
+        const filter = this.refs.filtersearchbar.value.toLowerCase();
+
+        const allTasks = [];
+        const filteredTasks = [];
+            this.state.allTasks.forEach((doc) => {
+                // actual filters
+                
+                if((doc.Title).toLowerCase().includes(filter)) {
+                    //console.log(doc.id, " => ", doc.data().FirstName);
+                    filteredTasks.push(doc);
+    
+                } else if((doc.Status).toLowerCase().includes(filter)) {
+                    filteredTasks.push(doc);
+                } else {
+                    for(var i = 0; i < doc.Skills.length; i++) {
+                        if(doc.Skills[i].toLowerCase().includes(filter)) {
+                            filteredTasks.push(doc);
+                            return;
+                        }
+                    }
+                }
+                console.log(filteredTasks);
+            });
+            this.setState({
+                filteredTasks
+            });
+            this.filterTasks(filteredTasks, null)
+    }
+
   render() {
     return (
         <div className="OrganizationDashboard">
@@ -259,7 +291,7 @@ class OrganizationDashboard extends Component {
                         </div>
                         <div class="ui search">
                             <div class="ui icon input">
-                                <input class="prompt" type="text" placeholder="Search by skill..."></input>
+                                <input class="prompt" ref="filtersearchbar" type="text" onChange={() => this.search()} placeholder="Search by skill or name..."></input>
                                 <i class="search icon"></i>
                             </div>
                             <div class="results"></div>
