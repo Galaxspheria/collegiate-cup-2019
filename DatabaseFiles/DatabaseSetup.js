@@ -133,14 +133,14 @@ function createDemoCompany(name, description, website, logo, email, location) {
 createDefaultUser();
 function createDefaultUser() {
     const defaultRef = firestore.collection("Users");
-    defaultRef.doc("a871ME9#2peR91C6X").set({
+    defaultRef.doc("Sa871ME9#2peR91C6X").set({
         FirstName: "Jackson",
         LastName: "Harriet",
         Email: "jharriet@gmail.com",
         Description: "Hard worker who is willing to learn whatever it takes to get the job done right",
         Location: "Johns Creek, GA",
         PowerLevel: parseInt(Math.random() * 15 + 5),
-        ProfilePic: "/images/daniel.jpg",
+        ProfilePic: "/images/people/daniel.jpg",
         HighSchool: "Freemont High School",
         Skills: ["Java", "C++", "Python", "Arduino"]
     })
@@ -151,3 +151,20 @@ function createDefaultUser() {
         console.error("Error adding document: ", error);
     });
 }
+
+// create default company
+const companyRef = firestore.collection("Companies");
+    companyRef.doc("Ca871ME9#2peR91C6X")({
+        Name: "Google",
+        Description: "Make science fiction a reality",
+        Website: "www.google.com",
+        Logo: "/images/google.png",
+        Email: "google@gmail.com",
+        Location: "Athens, GA"
+    })
+    .then(function(docRef) {
+        console.log("Document written ");
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
