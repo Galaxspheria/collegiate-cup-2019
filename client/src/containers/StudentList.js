@@ -41,6 +41,10 @@ class StudentList extends Component {
         });
     }
 
+    componentWillMount() {
+        window.test();
+      }
+
     componentDidMount() {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
