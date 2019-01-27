@@ -154,7 +154,7 @@ class Quiz extends Component {
                     {(this.state.finalOutput || this.state.finalError) && (this.state.finalOutput.length > 0 || this.state.finalError.length > 0)?
                         <div className="code-output-final">
                             {this.state.finalOutput.length > 0?
-                                this.state.finalOutput.map((line) => <span className={line.slice(-5) == "false" ? "failed-text" :""}>{line}<br/></span>)
+                                this.state.finalOutput.map((line) => <span className={line.slice(-5) === "false" ? "failed-text" :""}>{line}<br/></span>)
                             :null}
                             {this.state.finalError.length > 0?
                                 this.state.finalError.map((line) => <span className="failed-text">{line}<br/></span>)

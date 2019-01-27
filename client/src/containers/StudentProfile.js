@@ -37,16 +37,57 @@ class StudentProfile extends Component {
                   <div class="ui segment">
                   {this.state.user.FirstName + " " + this.state.user.LastName}
                   <br></br>
-                  High School: Fariview HS
+                  High School: {this.state.user.HighSchool}
                   <br></br>
-                  Age: 17
+                  Location: {this.state.user.Location}
                   <br></br>
-                  Tier: 5
+                  Power Lever: {this.state.user.PowerLevel}
                   <br></br>
-                  Speciality: Not Web dev lol
+                  Specialities: 
+                  <br></br>
+                  Bio: {this.state.user.Description}
                   </div>
                 </div>
             </div>
+
+          // {this.state.user.CurrentTasks.length > 0?
+          //     <div className="thirteen wide white column scroll-list">
+          // <div className="thirteen wide white column">
+          //     <h2 className="ui header">Tasks I'm working on:</h2>
+          //     <div className="ui divider"></div>
+          //     <div className="ui three stackable cards centered">
+                
+          //         {this.state.user.CurrentTasks.map((d) => (
+          //             <div className="ui card">
+          //                 <div className="ui content">
+          //                     <h4 className="ui header left aligned" style={{display: "inline-block"}}>
+          //                         {d.Title}
+          //                     </h4>
+          //                     <h4 className="ui right floated header" style={{display: "inline-block"}}>
+          //                         {d.Company}
+          //                     </h4>
+          //                     <div className="meta">
+          //                         <span className="price left floated">${d.Wage}</span>
+          //                         <span className="stay right floated">Posted On: {d.Date} </span>
+          //                     </div>
+          //                     <div className="description ui">
+          //                         <span >{d.Description}</span>
+          //                     </div>
+          //                 </div>
+          //                 <div className="extra content">
+          //                     <div className="ui bottom attached button centered">
+          //                     <i className="newspaper outline icon"></i>
+          //                             View Task
+          //                     </div>
+          //                 </div>
+          //             </div>
+          //         ))}
+          //     </div>
+          //   </div>
+          //   :null}
+          
+
+
           :
             <div className="ui equal width centered grid container">
               <h2>Uh oh! That profile can't be found.</h2>
