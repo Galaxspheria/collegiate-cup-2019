@@ -46,7 +46,7 @@ class App extends Component {
           <Router>
             <div>
               <Route render={({ location }) => {
-                return (location.pathname !== '/login/' && location.pathname !== '/login' && location.pathname !== ('/')) ? <Navbar/> : null
+                return (location.pathname !== '/login/' && location.pathname !== '/login' && location.pathname !== '/about/' && location.pathname !== '/about' && location.pathname !== ('/')) ? < Navbar / > : null
               }} />
 
               <Route path="/" exact component={Home} />

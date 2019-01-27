@@ -75,12 +75,15 @@ class Home extends Component {
               </div>
             </div>
           </div>
-          <div className="ui white container segment teal homepage midz" style={{marginBottom: "4rem"}}>
+          <div className="ui white container segment teal homepage midz" style={{marginBottom: "8rem"}}>
             <div className="ui image center-image">
               <img className="ga-img" src="/images/gaOutline.png"/>
             </div>
-            <div className="ui items homepage-content">
-              
+            <div className="ui items homepage-content" style={{textAlign: "center"}}>
+              Interested in learning more? Read more and join us today.<br/><br/>
+              <div>
+                <button onClick={() => this.props.history.push("/about/")} className="ui teal large button">About Us</button>
+              </div>
             </div>
           </div>
           <footer class="ui secondary pointing menu floating-footer">
