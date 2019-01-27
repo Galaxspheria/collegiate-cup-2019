@@ -56,7 +56,7 @@ function createTasks(skills, service, title, company, description, wage, applied
         } else if(skills[0] == "Python"){
             createCompanies("Argo AI", "Developing the future of self driving cars", "www.ArgoAI.com", "/images/argoai.png", docRef.id, "argoai@gmail.com", "Norcross, GA");
         } else if(skills[0] == "Android Studio"){
-            createCompanies("Supercell", "The best mobile app developes in the world!", "www.supercell.com", "/images/supercell.png", docRef.id, "supercell@gmail.com", "Cartersville, GA");
+            createCompanies("Supercell", "The best mobile app developers in the world!", "www.supercell.com", "/images/supercell.png", docRef.id, "supercell@gmail.com", "Cartersville, GA");
         }
     })
     .catch(function(error) {
@@ -156,7 +156,7 @@ function createDefaultUser() {
 createDefaultCompany();
 function createDefaultCompany() {
     const companyRef = firestore.collection("Companies");
-        companyRef.doc("Ca871ME9#2peR91C6X")({
+        companyRef.doc("Ca871ME9#2peR91C6X").set({
             Name: "Google",
             Description: "Make science fiction a reality",
             Website: "www.google.com",
@@ -165,7 +165,7 @@ function createDefaultCompany() {
             Location: "Athens, GA"
         })
         .then(function(docRef) {
-            console.log("Document written ");
+            console.log("Default Company Document written ");
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
