@@ -3,6 +3,7 @@ import {Header, Modal, Button} from 'semantic-ui-react'
 import firebase from "../components/Firebase";
 import { Dropdown } from 'semantic-ui-react'
 
+
 const categories = [
     {
         text: 'Website Design',
@@ -21,6 +22,19 @@ const categories = [
         value: 'Data Processing'
     }
 ]
+const skillOptions = [
+    {key: 'Website Design', value: 'Website Design', text: 'Website Design' },
+    {key: 'Searching', value: 'Searching', text: 'Searching' },
+    {key: 'Java', value: 'Java', text: 'Java' },
+    {key: 'Arduino', value: 'Arduino', text: 'Arduino' },
+    {key: 'Python', value: 'Python', text: 'Python' },
+    {key: 'JavaScript', value: 'JavaScript', text: 'JavaScript' },
+    {key: 'Node.js', value: 'Node.js', text: 'Node.js' },
+    {key: 'React', value: 'React', text: 'React' },
+    {key: 'Ruby', value: 'Ruby', text: 'Ruby' },
+    {key: 'C', value: 'C', text: 'C' },
+    {key: 'Databases', value: 'Databases', text: 'Databases' }
+]
 
 class AddModal extends Component {
     addTask = e => {
@@ -31,7 +45,7 @@ class AddModal extends Component {
             Wage: "$" + this.refs.wage.value,
             ServiceHours: this.refs.serviceHours.value,
             Description: this.refs.description.value,
-            Skills: this.refs.skills.value.split(",").map(str => str.trim())
+            Skills: this.refs.skills.state.value
         })
         .then((res) => {
             this.props.history.push("/task/profile/" + res.id)
@@ -78,7 +92,7 @@ class AddModal extends Component {
                             </div>
                             <div className="field">
                                 <label>Skills</label>
-                                <textarea rows="2" ref="skills" placeholder="Separate skills with commas"></textarea>
+                                <Dropdown placeholder='Skills' ref="skills" fluid multiple search selection options={skillOptions} />
                             </div>
                             <div className="ui buttons">
                                 <Button

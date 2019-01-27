@@ -35,9 +35,9 @@ class StudentProfile extends Component {
                 </div>
                 <div class="twelve wide column">
                   <div class="ui segment">
-                  {this.state.user.FirstName + " " + this.state.user.LastName}
-                  <br></br>
-                  High School: {this.state.user.HighSchool}
+                  <h2>{this.state.user.FirstName + " " + this.state.user.LastName}</h2>
+                  <div class="ui divider"></div>
+                  <h3>High School:</h3> {this.state.user.HighSchool}
                   <br></br>
                   Location: {this.state.user.Location}
                   <br></br>
