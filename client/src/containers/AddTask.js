@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { database } from 'firebase';
+import firebase from "../components/Firebase";
 
 const categories = [
     "Website Design", 
@@ -9,6 +9,22 @@ const categories = [
 ]
 
 class AddTask extends Component {
+    addTask = e => {
+        e.preventDefault();
+
+        firebase.firestore().collection("Tasks").add({
+            Title: this.refs.title.value,
+            Category: this.refs.category.value,
+            Wage: "$" + this.refs.wage.value,
+            ServiceHours: this.refs.serviceHours.value,
+            Description: this.refs.description.value,
+            Skills: this.refs.skills.value.split(",").map(str => str.trim())
+        })
+        .then((res) => {
+            this.props.history.push("/TaskProfile/" + res.id)
+        });
+    };
+    
   render() {
     return (
         <div className="AddTask">
@@ -17,11 +33,11 @@ class AddTask extends Component {
                     <div className="two fields">
                         <div className="field">
                             <label>Task Title</label>
-                            <input type="text" placeholder="Task Title"></input>
+                            <input type="text" ref="title" placeholder="Task Title"></input>
                         </div>
                         <div className="field">
                             <label>Category</label>
-                            <select class="ui search dropdown">
+                            <select className="ui search dropdown" ref="category">
                                 <option value="">Select Category</option>
                                 {categories.map((category)=> (
                                     <option value={category}>{category}</option>
@@ -32,26 +48,26 @@ class AddTask extends Component {
                     <label>Wage</label><br></br>
                     <div className="ui labeled input">
                         <label for="wage" class="ui label"><i className="dollar icon"></i></label>
-                        <input type="number" placeholder="Wage" id="wage" min="0"></input>
+                        <input type="number" ref="wage" placeholder="Wage" id="wage" min="0"></input>
                     </div>
                     
                     <br></br><label>Service Hours</label><br></br>
                     <div className="ui labeled input">
                         <label for="wage" class="ui label"><i className="clock icon"></i></label>
-                        <input type="number" placeholder="Service Hours" id="wage" min="0"></input>
+                        <input type="number" ref="serviceHours" placeholder="Service Hours" id="wage" min="0"></input>
                     </div>
                     <div className="field">
                         <label>Quick Description</label>
-                        <textarea rows="2"></textarea>
+                        <textarea rows="2" ref="description"></textarea>
                     </div>
                     <div className="field">
                         <label>Skills</label>
-                        <textarea rows="2" placeholder="Separate skills with commas"></textarea>
+                        <textarea rows="2" ref="skills" placeholder="Separate skills with commas"></textarea>
                     </div>
-                    <div class="ui buttons">
-                        <a class="ui button" href={"/CompanyProfile"}>Cancel</a>
-                        <div class="or"></div>
-                        <button class="ui positive button">Submit</button>
+                    <div className="ui buttons">
+                        <a className="ui button" href={"/CompanyProfile"}>Cancel</a>
+                        <div className="or"></div>
+                        <button className="ui positive button" onClick={(e) => this.addTask(e)}>Submit</button>
                     </div>
                 </div>
             </div>
