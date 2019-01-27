@@ -1,7 +1,7 @@
 import React from 'react'
 import {Header, Modal} from 'semantic-ui-react'
 
-const LoginModal = () => (
+const AddModal = () => (
   <Modal trigger={<div onClick={(e) => e.preventDefault()} class="ui fluid large teal submit button">Login</div>}>
     <Modal.Header>Select a Photo</Modal.Header>
     <Modal.Content>
@@ -14,4 +14,4 @@ const LoginModal = () => (
   </Modal>
 )
 
-export default LoginModal
+export default AddModal
