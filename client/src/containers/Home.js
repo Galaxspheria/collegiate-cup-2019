@@ -19,7 +19,6 @@ class Home extends Component {
                   <img src="/images/gaOutline.png"/>
                 </div>
                 <div className="content">
-                  <div className="header"></div>
                   <div className="description">
                     <h2>A Few Shocking Statistics</h2>
                     <ul>
