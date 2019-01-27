@@ -6,41 +6,41 @@ class StudentResources extends Component {
     return (
         <div className="StudentResources">
           <div className="ui container midz title-header">
-            <h1 style={{fontSize: 40}}>Project Shatter</h1>
-            <div className="ui teal inverted segment" style={{display: "inline-block"}}>
-              <h3>Breaking down barriers</h3>
-            </div>
+            <h1 style={{fontSize: 40}}>Helpful Resources</h1>
+            <h3>Here you can find an abundance of resources to help you expand you knowledge and abilities</h3>
           </div>
           <div className="ui white container segment teal homepage midz">
             <div className="ui items homepage-content">
               <div className="item">
-                <div className="ui small image">
-                  <img src="/images/gaOutline.png"/>
-                </div>
                 <div className="content">
-                  <div className="header">A Problem in Need of a Solution</div>
                   <div className="description">
-                    <h2>A Few Shocking Statistics</h2>
+                    <h1>Helpful Coding Class Websites</h1>
                     <ul>
-                      <li>25% of children in Georgia live in a home with an income at or less than the federal poverty level.</li>
-                      <li>28.1% of Georgians live without access to broadband.</li>
-                      <li>Atlanta experienced a 10.4% increase in jobs while more rural regions saw a growth of just 3.1%.</li>
+                      <li><a href="https://www.codecademy.com">Code Academy</a></li>
+                      <li><a href="https://www.coursera.org ">Coursera</a></li>
+                      <li><a href="https://www.codewars.com/">Code Wars</a></li>
+                      <li><a href="https://www.khanacademy.org/">Khan Academy</a></li>
                     </ul>
-                    <h2>What this Means</h2>
+                    <h2>Excellent Video Tutorials</h2>
                     <ul>
-                      <li>Students who work hard to be at the top of their class end up reaching a ‘glass ceiling’ due to this lack of resources.</li>
-                      <li>This prevents intelligent and dedicated students from being able to attend some of the top universities or work higher paying jobs.</li>
-                      <li>Many families are kept trapped in poverty by this glass ceiling, so it is time that this barrier is shattered.</li>
+                      <li><a href="https://www.youtube.com/user/CodersGuide">Coders Guide</a></li>
+                      <li><a href="https://www.youtube.com/user/thenewboston">The New Boston</a></li>
                     </ul>
-                    <h2>Our Solution</h2>
+                    <h2>Useful Blogs</h2>
                     <ul>
-                      <li>Here at Project Shatter we have created a network specifically for these students that enables them to learn and gain experience in the field of technology while simultaneously earning the income their families rely on.</li>
-                      <li>Through their school, students can connect to a network of educational resources and opportunities to participate in real world projects with real companies and nonprofit organizations.</li>
+                      <li><a href="https://alistapart.com/">A List Apart</a></li>
+                      <li><a href="https://css-tricks.com/">Css Tricks</a></li>
+                      <li><a href="https://www.sitepoint.com/">Sitepoint</a></li>
                     </ul>
-                    <h2>Why this Works</h2>
+                    <h2>More Specialized Resources</h2>
                     <ul>
-                      <li>Our system allows students to learn more about Computer Science while being paid to work on real world projects.</li>
-                      <li>This not only opens up more full-time job opportunities for these students in the future, but it can help create an impressive resume to increase a student’s chances of being accepted into a prestigious university.</li>
+                      <li><a href="https://learn.skillcrush.com/skillcrush-free-bootcamp/">Skillcrush</a></li>
+                      <li><a href="http://conqueringthecommandline.com/book">Conquering The Command Line</a></li>
+                      <li><a href="http://try.github.io/">Try Github</a></li>
+                      <li><a href="https://www.javascript.com/">JavaScript</a></li>
+                      <li><a href="http://www.learnpython.org/">LearnPython</a></li>
+                      <li><a href="http://www.mysqltutorial.org/">MySQL Tutorial</a></li>
+                      <li><a href="https://hackdesign.org/">Hack Academy</a></li>
                     </ul>
 
                     <center>
