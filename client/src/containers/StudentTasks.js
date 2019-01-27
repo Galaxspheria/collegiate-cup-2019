@@ -8,7 +8,8 @@ const currentProjects = [
       Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
       Location: "",
       Category: "Website Design",
-      Date: "1/11/19"
+      Date: "1/11/19",
+      Status: 2
       
   },
   {
@@ -18,7 +19,8 @@ const currentProjects = [
     Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
     Location: "",
     Category: "Website Design",
-    Date: "1/11/19"
+    Date: "1/11/19",
+    Status: 2
     
 },
 {
@@ -28,7 +30,8 @@ const currentProjects = [
   Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
   Location: "",
   Category: "Website Design",
-  Date: "1/11/19"
+  Date: "1/11/19",
+  Status: 2
   
 }
 ]
@@ -41,7 +44,8 @@ const PendingProjects = [
         Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
         Location: "",
         Category: "Website Design",
-        Date: "1/11/19"
+        Date: "1/11/19",
+        Status: 1
         
     },
     {
@@ -51,7 +55,8 @@ const PendingProjects = [
       Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
       Location: "",
       Category: "Website Design",
-      Date: "1/11/19"
+      Date: "1/11/19",
+      Status: 1
       
   },
   {
@@ -61,7 +66,8 @@ const PendingProjects = [
     Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
     Location: "",
     Category: "Website Design",
-    Date: "1/11/19"
+    Date: "1/11/19",
+    Status: 1
     
   }
   ]
@@ -73,7 +79,8 @@ const PossibleProjects = [
         Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
         Location: "",
         Category: "Website Design",
-        Date: "1/11/19"
+        Date: "1/11/19",
+        Status: 0
         
     },
     {
@@ -83,7 +90,8 @@ const PossibleProjects = [
       Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
       Location: "",
       Category: "Website Design",
-      Date: "1/11/19"
+      Date: "1/11/19",
+      Status: 0
       
   },
   {
@@ -162,7 +170,7 @@ class StudentTasks extends Component {
                 <div className="ui divider"></div>
                 <div className="ui three stackable cards centered">
                     {currentProjects.map((d) => (
-                        <div className="ui card">
+                        <div className="ui yellow card">
                             <div className="ui content">
                                 <h4 className="ui header left aligned" style={{display: "inline-block"}}>
                                     {d.Title}
@@ -193,7 +201,7 @@ class StudentTasks extends Component {
             <div className="ui divider"></div>
                 <div className="ui three stackable cards centered">
                     {PendingProjects.map((d) => (
-                        <div className="ui card">
+                        <div className="ui blue card">
                             <div className="ui content">
                                 <h4 className="ui header left aligned" style={{display: "inline-block"}}>
                                     {d.Title}

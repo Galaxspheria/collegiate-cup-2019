@@ -200,7 +200,7 @@ class CompanyProfile extends Component {
                         <div className="ui divider"></div>
                             <div className="ui three stackable cards left">
                             {data[0].tasks0.map((d) => (
-                                <div className="card">
+                                <div className="red card">
                                     <div className="content">
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
@@ -230,7 +230,7 @@ class CompanyProfile extends Component {
                         <div className="ui divider"></div>
                             <div className="ui three stackable cards left">
                             {data[0].tasks1.map((d) => (
-                                <div className="card">
+                                <div className="blue card">
                                     <div className="content">
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
@@ -260,7 +260,7 @@ class CompanyProfile extends Component {
                         <div className="ui divider"></div>
                             <div className="ui three stackable cards left">
                             {data[0].tasks2.map((d) => (
-                                <div className="card">
+                                <div className="yellow card">
                                     <div className="content">
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
@@ -290,7 +290,7 @@ class CompanyProfile extends Component {
                         <div className="ui divider"></div>
                             <div className="ui three stackable cards left">
                             {data[0].tasks3.map((d) => (
-                                <div className="card">
+                                <div className="green card">
                                     <div className="content">
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
