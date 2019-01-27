@@ -158,12 +158,12 @@ createDefaultCompany();
 function createDefaultCompany() {
     const companyRef = firestore.collection("Companies");
         companyRef.doc("Ca871ME92peR91C6X").set({
-            Name: "Google",
-            Description: "Make science fiction a reality",
-            Website: "www.google.com",
-            Logo: "/images/google.png",
-            Email: "google@gmail.com",
-            Location: "Athens, GA",
+            Name: "Atlanta Children's Shelter",
+            Description: "Founded in 1986 by the Junior League of Atlanta and located in the North Avenue Presbyterian Church, the Atlanta Children’s Shelter provides free, quality day care, emotional support, an educational curriculum for homeless children, and focused social services for their families.",
+            Website: "https://www.acsatl.org/",
+            Logo: "/images/atlantacs.png",
+            Email: "atlantacs@gmail.com",
+            Location: "Atlanta, GA",
             TaskIDs: []
         })
         .then(function(docRef) {
