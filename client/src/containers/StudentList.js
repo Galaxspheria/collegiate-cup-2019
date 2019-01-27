@@ -8,7 +8,9 @@ class StudentList extends Component {
         this.ref = firebase.firestore().collection('Users');
         this.unsubscribe = null;
         this.state = {
-            users: []
+            users: [],
+            filteredUsers: [],
+            filters: []
         };
     }
 
@@ -45,6 +47,37 @@ class StudentList extends Component {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
 
+    search() {
+        const filters = this.refs.searchtextbox.value.split(" ");
+
+        const users = [];
+        const filteredUsers = [];
+        this.state.users.forEach((doc) => {
+            // actual filters
+            var found = false;
+                    for(var i = 0; i < doc.Skills.length; i++) {
+                        if((doc.Skills[i]).toLowerCase().includes(filters[x]) && !found) {
+                            //console.log(doc.id, " => ", doc.data().Skills[i]);
+                            found = true;
+                            filteredUsers.push(doc);
+                        }
+                    }
+                    if((doc.FirstName).toLowerCase().includes(filters[x]) && !found) {
+                        //console.log(doc.id, " => ", doc.data().FirstName);
+                        filteredUsers.push(doc);
+        
+                    } else if((doc.LastName).toLowerCase().includes(filters[x]) && !found) {
+                        //console.log(doc.id, " => ", doc.data().LastName);
+                        filteredUsers.push(doc);
+                    }
+        });
+        this.setState({
+            filteredUsers
+        });
+    }
+
+    
+
     render() {
         return (
             <div className="StudentList pattern-bg page-height">
@@ -52,7 +85,8 @@ class StudentList extends Component {
                     <div className="field">
                         <div className="ui search">
                             <div className="ui icon input">
-                            <input type="text" placeholder="Task Title"></input>
+                            <input ref ="searchtextbox"type="text" placeholder="Task Title"></input>
+                            <button ref="searchsubmitbutton" onClick={() => this.search()}>submit</button>
                             {/* <i className="search icon"></i> */}
                             </div>
                             <div className="results"></div>
