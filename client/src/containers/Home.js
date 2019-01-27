@@ -72,7 +72,7 @@ class Home extends Component {
               </div>
             </div>
           </div>
-          <div className="ui white container segment teal homepage midz">
+          <div className="ui white container segment teal homepage midz" style={{marginBottom: "4rem"}}>
             <div className="ui image center-image">
               <img className="ga-img" src="/images/gaOutline.png"/>
             </div>
@@ -81,6 +81,9 @@ class Home extends Component {
             </div>
           </div>
           <footer class="ui secondary pointing menu floating-footer">
+            <div className="ui footer-img image">
+              <img src="/images/gaOutline.png"/>
+            </div>
             <div className="floater-text"><strong>Join Us Today</strong></div>
             <div className="right menu">
               <div className="floater-text">I am a...</div>

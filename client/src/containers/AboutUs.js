@@ -52,7 +52,7 @@ class AboutUs extends Component {
                         which hard working students can thrive, no longer being held back by a lack of resources.</p>
 
                         <h2>Who is involved and why choose Project Shatter?</h2>
-                        <h4>The Student</h4>
+                        <h4><span className="highlight">The Student</span></h4>
                         <p>Why should a student choose to compete every time he or she wants to complete a task instead of 
                             seeking easier, steady employment? The typical job held by high schoolers in rural regions of 
                             Georgia involve working at a fast food chain, or something similar. These jobs pay just above the 
@@ -64,20 +64,20 @@ class AboutUs extends Component {
                             offer future employment at said organization. Students are also able to create a more impressive 
                             college application, increasing their chances of being accepted into more prestigious universities. </p>
 
-                        <h4>Local Businesses</h4>
+                        <h4><span className="highlight">Local Businesses</span></h4>
                         <p>Local businesses can use Project Shatter to quickly find students willing to work for a cheap rate 
                             that can handle technology related tasks. For example, if a local grocery store wanted to create a 
                             website, it would either cost thousands of dollars to hire a professional, or many hours of the owners’ 
                             time in order to make it for free. Instead, the business can hire a student with some experience with 
                             web development to do the task, saving both time and money.</p>
 
-                        <h4>Nonprofit Organizations</h4>
+                        <h4><span className="highlight">Nonprofit Organizations</span></h4>
                         <p>Nonprofit organizations such as the Georgia Partnership for Excellence in Education are able to use 
                             Project Shatter to serve the students in their communities. Many nonprofit organizations experience 
                             technical issues and oftentimes cannot afford a full time technician to deal with. Hiring students 
                             to do individual tasks can save money and serve the community at the same time. </p>
 
-                        <h4>Larger Companies</h4>
+                        <h4><span className="highlight">Larger Companies</span></h4>
                         <p>Companies are looking to increase the diversity of their workforce, as well as show that they are 
                             good members of their community, which Project Shatter is able to provide. In addition, many tech 
                             companies are struggling to find qualified candidates for their open positions. According to the 
