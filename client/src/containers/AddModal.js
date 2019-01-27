@@ -42,12 +42,19 @@ class AddModal extends Component {
         firebase.firestore().collection("Tasks").add({
             Title: this.refs.title.value,
             Category: this.refs.dropdown.state.value,
-            Wage: "$" + this.refs.wage.value,
+            Wage: this.refs.wage.value,
             ServiceHours: this.refs.serviceHours.value,
             Description: this.refs.description.value,
             Skills: this.refs.skills.state.value,
             DateCreated: "January, 27, 2019",
-            CompanyName: "Google"
+            CompanyName: "Google",
+            Status: "Open"
+        })
+        .then((res) => {
+            firebase.firestore().collection("Companies").doc("Ca871ME92peR91C6X").update({
+                TaskIDs: firebase.firestore.FieldValue.arrayUnion(res.id)
+            })
+            return res
         })
         .then((res) => {
             this.props.history.push("/task/profile/" + res.id)
