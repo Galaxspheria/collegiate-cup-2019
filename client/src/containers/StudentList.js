@@ -41,10 +41,6 @@ class StudentList extends Component {
         });
     }
 
-    componentWillMount() {
-        window.test();
-      }
-
     componentDidMount() {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
@@ -57,7 +53,6 @@ class StudentList extends Component {
                         <div className="ui search">
                             <div className="ui icon input">
                             <input type="text" placeholder="Task Title"></input>
-                            <button>search</button>
                             {/* <i className="search icon"></i> */}
                             </div>
                             <div className="results"></div>
