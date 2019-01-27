@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddModal from './AddModal';
 
 // Make sure to only pull data from the database that matches this company
 const data = [
@@ -175,9 +176,7 @@ class CompanyProfile extends Component {
                                         <i className="file outline icon"></i>
                                         Add New Task
                                         </div>
-                                        <a className="ui primary button" href={"/AddTask"}>
-                                        Create
-                                        </a>
+                                        <AddModal history={this.props.history}/>
                                     </div>
                                     <div className="column">
                                         <div className="ui icon header">
