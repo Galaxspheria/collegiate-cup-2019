@@ -1,14 +1,44 @@
 import React, { Component } from 'react';
 import BGParticles from '../components/BGParticles';
-import LoginModal from './LoginModal';
 
 class Login extends Component {
-  render() {
+    constructor(props) {
+        super(props)
+        this.state = {
+            error: null,
+            loading: false
+        }
+    }
+
+    login() {
+        const that = this;
+        this.setState({loading: true})
+        setTimeout(() => {
+            const pw = this.refs.password.value.slice(0,1)[0];
+            if (pw === "s" || pw === "S") {
+                that.props.history.push("/StudentProfile/bzflVhB71cgTN7GiXiUd")
+            } else if (pw === "c" || pw === "C") {
+                that.props.history.push("/CompanyProfile")
+            } else {
+                that.setState({error: "Your username or password is incorrect.", loading: false})
+            }
+        }, 750)
+    }
+
+    render() {
     return (
         <div className="Login">
             <div className="ui middle aligned center aligned grid page-height container particle-window">
                 <div className="column centered">
                     <div className="width-cap">
+                        {this.state.error?
+                            <div className="ui error message">
+                            <div className="header">
+                                Uh oh!
+                            </div>
+                            <p>{this.state.error}</p>
+                            </div>
+                        :null}
                         <h2 className="ui teal image header">
                         <div className="content">
                             Sign In
@@ -25,10 +55,10 @@ class Login extends Component {
                             <div className="field">
                             <div className="ui left icon input">
                                 <i className="lock icon"></i>
-                                <input type="password" name="password" placeholder="Password"></input>
+                                <input type="password" ref="password" name="password" placeholder="Password"></input>
                             </div>
                             </div>
-                            <div className="ui fluid large teal submit button">Login</div>
+                            <div onClick={() => this.login()} className={this.state.loading? "ui fluid large teal submit button loading" : "ui fluid large teal submit button"}>Login</div>
                         </div>
                         </form>
                         <div className="ui message">
@@ -40,7 +70,7 @@ class Login extends Component {
             <BGParticles/>
         </div>
     );
-  }
+    }
 }
 
 export default Login;
