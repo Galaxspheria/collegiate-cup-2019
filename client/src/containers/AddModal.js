@@ -48,7 +48,9 @@ class AddModal extends Component {
             Skills: this.refs.skills.state.value,
             DateCreated: "January, 27, 2019",
             CompanyName: "Google",
-            Status: "Open"
+            Status: "Open",
+            AppliedUsers: [],
+            AcceptedUser: null
         })
         .then((res) => {
             firebase.firestore().collection("Companies").doc("Ca871ME92peR91C6X").update({
