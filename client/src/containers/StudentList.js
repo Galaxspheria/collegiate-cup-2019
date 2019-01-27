@@ -50,7 +50,7 @@ class StudentList extends Component {
     }
 
     search() {
-        const filter = this.refs.searchtextbox.value;
+        const filter = this.refs.searchtextbox.value.toLowerCase();
 
         const users = [];
         const filteredUsers = [];

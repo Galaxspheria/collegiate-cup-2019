@@ -150,7 +150,7 @@ import firebase from "../components/Firebase";
 class OrganizationDashboard extends Component {
     constructor(props) {
         super(props);
-        this.orgRef = firebase.firestore().collection('Companies').doc("XUO9afmO8dmrSqVfBmYC");
+        this.orgRef = firebase.firestore().collection('Companies').doc("Ca871ME92peR91C6X");
         this.taskRef = firebase.firestore().collection('Tasks');
         this.unsubscribe = null;
         this.state = {
@@ -300,7 +300,7 @@ class OrganizationDashboard extends Component {
                     <div className="thirteen wide white column scroll-list">
                     <div className="ui inline container">
                         <h1 className="ui header" style={{display: "inline-block"}}>{this.state.company.Name}</h1>
-                        <img className="ui image right floated" src={this.state.company.icon} style={{display: "inline-block"}} height="50px" width="50px"></img>
+                        <img className="ui image right floated" src={this.state.company.Logo} style={{display: "inline-block"}} height="50px" width="50px"></img>
                     </div>
                         <div className="ui placeholder segment">
                             <div className="ui two column stackable center aligned grid">
