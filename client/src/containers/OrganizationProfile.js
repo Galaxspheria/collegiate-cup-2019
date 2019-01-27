@@ -5,7 +5,6 @@ class OrganizationDashboard extends Component {
   constructor(props) {
     super(props);
     this.ref = firebase.firestore().collection('Companies').doc(this.props.match.params.id);
-    console.log();
     this.unsubscribe = null;
     this.state = {}
   }
