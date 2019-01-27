@@ -45,8 +45,9 @@ class StudentResources extends Component {
                     <ul>
                       <li><a href="https://learn.skillcrush.com/skillcrush-free-bootcamp/">Skillcrush</a></li>
                       <li>Primary focus: HTML and CSS. Skillcrush’s free coding bootcamp is a perfect place to start for absolute beginners. You’ll learn what it means to work in tech, get digestible definitions of common industry lingo, and get the chance to write your first lines of code.</li>
-                      <li><a href="http://conqueringthecommandline.com/book">Conquering The Command Line</a></li>
-                      <li>Primary focus: Command Line. Free online book by Mark Bates. Very in-depth.</li>
+                      <li><a href="http://conqueringthecommandline.com/book">Conquering The Command Line</a>
+                        <li>Primary focus: Command Line. Free online book by Mark Bates. Very in-depth.</li>
+                      </li>
                       <li><a href="http://try.github.io/">Try Github</a></li>
                       <li>Primary focus: Git/Github. An interactive series of challenges to learn about and experiment with Git. Created by Code School.</li>
                       <li><a href="https://www.javascript.com/">JavaScript</a></li>
