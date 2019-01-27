@@ -88,14 +88,13 @@ class StudentList extends Component {
         return (
             <div className="StudentList pattern-bg page-height">
                 <div className="ui center container">
-                    <div className="field">
+                    <div className="ui centered grid">
                         <div className="ui search">
-                            <div className="ui icon input">
-                            <input ref ="searchtextbox"type="text" onChange={() => this.search()} placeholder="Task Title"></input>
-                            {/* <button ref="searchsubmitbutton" onClick={() => this.search()}>submit</button> */}
+                        <div className="ui icon input">
+                            <input className="prompt" ref ="searchtextbox"type="text" onChange={() => this.search()} placeholder="Search skill, name, ..."></input>
                             <i className="search icon"></i>
-                            </div>
-                            <div className="results"></div>
+                        </div>
+                        <div className="results"></div>
                         </div>
                     </div>
                     <div className="ui link four stackable cards">
