@@ -45,11 +45,14 @@ class AddModal extends Component {
             Wage: "$" + this.refs.wage.value,
             ServiceHours: this.refs.serviceHours.value,
             Description: this.refs.description.value,
-            Skills: this.refs.skills.state.value
+            Skills: this.refs.skills.state.value,
+            DateCreated: "January, 27, 2019",
+            CompanyName: "Google"
         })
         .then((res) => {
             this.props.history.push("/task/profile/" + res.id)
         });
+        
     };
     state = { open: false }
     show = dimmer => () => this.setState({ dimmer, open: true })
