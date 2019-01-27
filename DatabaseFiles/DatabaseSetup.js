@@ -56,7 +56,7 @@ function createTasks(skills, service, title, company, description, wage, applied
         } else if(skills[0] == "Python"){
             createCompanies("Argo AI", "Developing the future of self driving cars", "www.ArgoAI.com", "/images/argoai.png", docRef.id, "argoai@gmail.com", "Norcross, GA");
         } else if(skills[0] == "Android Studio"){
-            createCompanies("Supercell", "The best mobile app developes in the world!", "www.supercell.com", "/images/supercell.png", docRef.id, "supercell@gmail.com", "Cartersville, GA");
+            createCompanies("Supercell", "The best mobile app developers in the world!", "www.supercell.com", "/images/supercell.png", docRef.id, "supercell@gmail.com", "Cartersville, GA");
         }
     })
     .catch(function(error) {
