@@ -1,45 +1,72 @@
 import React, { Component } from 'react';
+import { Icon } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 const data = [
     {
-        title: "A",
-        price: 123,
-        time: 12
+        title: "Alphabetical Word Checker",
+        xp: 150,
+        icon: "sort alphabet down",
+        desc: 'A handful of words have their letters in alphabetical order, that is, nowhere in the word do you change direction if you were to scan along the English alphabet. An example is the word "almost", which has its letters in alphabetical order...',
+        link: "/quiz"
     }, {
-        title: "B",
-        price: 222,
-        time: 5
+        title: "Circular Array",
+        xp: 100,
+        icon: "sync alternate"
     }, {
-        title: "C",
-        price: 1,
-        time: 7
+        title: "Sign In Basics",
+        xp: 200,
+        icon: "sign-in"
     }, {
-        title: "A",
-        price: 123,
-        time: 12
+        title: "Data Visualization: Pie Charts",
+        xp: 150,
+        icon: "chart pie"
     }, {
-        title: "B",
-        price: 222,
-        time: 5
+        title: "To Do List",
+        xp: 100,
+        icon: "tasks"
     }, {
-        title: "C",
-        price: 1,
-        time: 7
+        title: "The Knight's Tour",
+        xp: 200,
+        icon: "chess knight"
     },
     {
-        title: "A",
-        price: 123,
-        time: 12
+        title: "Python Debugging Level 3",
+        xp: 150,
+        icon: "bug"
     }, {
-        title: "B",
-        price: 222,
-        time: 5
+        title: "Intro to Command Line",
+        xp: 100,
+        icon: "terminal"
     }, {
-        title: "C",
-        price: 1,
-        time: 7
+        title: "Simple Search",
+        xp: 200,
+        icon: "search"
     },
 ]
+
+const DataEntry = (d) => (
+    <div>
+        <div className="content force-black-text">
+        <div className="header">{d.title}</div>
+        <div className="meta">
+            <span className="price">{d.xp} Potential Experience Points</span>
+        </div>
+        {d.desc?
+            <div className="description ui ">
+                {d.desc}
+            </div>
+        :
+            <div className="description ui placeholder">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        }
+        <div className="ui divider"></div>
+    </div>
+    </div>
+)
 
 class ChallengeList extends Component {
   render() {
@@ -50,27 +77,16 @@ class ChallengeList extends Component {
                 <h4 className="ui header">FILTER</h4>
             </div>
             <div className="twelve wide white column scroll-list">
-                <h2 className="ui header">My Projects and Challenges</h2>
+                <h2 className="ui header">My Challenges</h2>
                 <div className="ui divider"></div>
                 <div className="ui items">
                     {data.map((d) => (
-                        <div className="item">
-                            <div className="ui small image">
-                            <img src="/images/image.png"/>
-                            </div>
-                            <div className="content">
-                            <div className="header">{d.title}</div>
-                            <div className="meta">
-                                <span className="price">${d.price}</span>
-                                <span className="stay">{d.time} Days</span>
-                            </div>
-                            <div className="description ui placeholder">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
+                        <div className="item anim-in">
+                        <div className="ui challenge-icon">
+                            <Icon name={d.icon}/>
                         </div>
-                    </div>
+                            {d.link? <Link to={d.link}>{DataEntry(d)}</Link> : DataEntry(d)}
+                        </div>
                     ))}
                 </div>
             </div>

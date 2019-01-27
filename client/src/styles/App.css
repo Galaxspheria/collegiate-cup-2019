@@ -50,3 +50,34 @@
   color: #00b5ad;
   font-weight: bold;
 }
+
+.anim-in {
+  opacity: 0;
+  /* make things invisible upon start */
+  animation: fadeLoad ease-in-out 0.5s;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+}
+
+@keyframes fadeLoad {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.challenge-icon {
+  font-size: 2em;
+  padding-right: 10px;
+  color: #00b5ad;
+}
+
+.force-black-text {
+  color: black;
+}
