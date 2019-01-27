@@ -12,11 +12,36 @@ class OrganizationDashboard extends Component {
         this.state = {
             open: [],
             pending: [],
-            in_progress: [],
+            Ongoing: [],
             completed: [],
             filteredTasks: []
         }
       }
+    accept(d) {
+        var batch = firebase.firestore().batch();
+        var taskRef = firebase.firestore().collection("Tasks").doc(d.id);
+        batch.update(taskRef, {AcceptedUser: "Sa871ME92peR91C6X",
+        Status: "Ongoing"});
+        batch.commit();
+    }
+    reject(d) {
+        var batch = firebase.firestore().batch();
+        var userRef = firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X");
+        batch.update(userRef, {TaskIDs: firebase.firestore.FieldValue.arrayRemove(d.id)});
+        var taskRef = firebase.firestore().collection("Tasks").doc(d.id);
+        batch.update(taskRef, {AppliedUsers: firebase.firestore.FieldValue.arrayRemove("Sa871ME92peR91C6X"),
+        Status: "Open"});
+        batch.commit();
+    }
+    complete(d) {
+        var batch = firebase.firestore().batch();
+        var userRef = firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X");
+        batch.update(userRef, {TaskIDs: firebase.firestore.FieldValue.arrayRemove(d.id)});
+        var taskRef = firebase.firestore().collection("Tasks").doc(d.id);
+        batch.update(taskRef, {AppliedUsers: firebase.firestore.FieldValue.arrayRemove("Sa871ME92peR91C6X"),
+        Status: "Completed"});
+        batch.commit();
+    }
     
       componentDidMount() {
         const that = this;
@@ -87,7 +112,7 @@ class OrganizationDashboard extends Component {
                         task0.push(tasks[i])
                     } else if (tasks[i].Status === "Pending") {
                         task1.push(tasks[i])
-                    } else if (tasks[i].Status === "In_progress") {
+                    } else if (tasks[i].Status === "Ongoing") {
                         task2.push(tasks[i])
                     } else if (tasks[i].Status === "Completed") {
                         task3.push(tasks[i])
@@ -98,7 +123,7 @@ class OrganizationDashboard extends Component {
             this.setState({
                 open: task0,
                 pending: task1,
-                in_progress: task2,
+                Ongoing: task2,
                 completed: task3
             })
         }
@@ -204,7 +229,7 @@ class OrganizationDashboard extends Component {
                                     </div>
                                     <div className="extra content">
                                         <div className = "ui two buttons">
-                                            <div class="ui attached button">
+                                            <div class="ui attached button" onClick={(e) => this.props.history.push("/profile/task/"+d.id)}>
                                                 <i class="newspaper outline icon"></i>
                                                 View Task
                                             </div>
@@ -234,13 +259,17 @@ class OrganizationDashboard extends Component {
                                     </div>
                                     <div className="extra content">
                                         <div className = "ui two buttons">
-                                            <div class="ui attached button">
+                                            {/* <div class="ui attached button">
                                                 <i class="newspaper outline icon"></i>
                                                 View Task
+                                            </div> */}
+                                            <div class="ui attached green button" onClick={(e) => this.accept(d)}>
+                                                <i class="check icon"></i>
+                                                Approve
                                             </div>
-                                            <div class="ui attached button">
-                                                <i class="edit icon"></i>
-                                                Edit Task
+                                            <div class="ui attached red button" onClick={(e) => this.reject(d)}>
+                                                <i class="x icon icon"></i>
+                                                Reject
                                             </div>
                                         </div>
                                     </div>
@@ -250,7 +279,7 @@ class OrganizationDashboard extends Component {
                         <h2 className="ui header">Ongoing Tasks</h2>
                         <div className="ui divider"></div>
                             <div className="ui three stackable cards left">
-                            {this.state.in_progress.map((d) => (
+                            {this.state.Ongoing.map((d) => (
                                 <div className="yellow card">
                                     <div className="content">
                                         <div className="header">{d.Title}</div>
@@ -263,14 +292,14 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                     <div className="extra content">
-                                        <div className = "ui two buttons">
-                                            <div class="ui attached button">
-                                                <i class="newspaper outline icon"></i>
+                                        <div class = "ui two buttons">
+                                            <div class="ui attached button" onClick={(e) => this.props.history.push("/profile/task/"+d.id)}>
+                                                <i class="newspaper outline icon" ></i>
                                                 View Task
                                             </div>
-                                            <div class="ui attached button">
-                                                <i class="edit icon"></i>
-                                                Edit Task
+                                            <div class="ui attached green button" onClick={(e) => this.complete(d)}>
+                                                <i class="flag icon" ></i>
+                                                Complete
                                             </div>
                                         </div>
                                     </div>
@@ -294,13 +323,9 @@ class OrganizationDashboard extends Component {
                                     </div>
                                     <div className="extra content">
                                         <div className = "ui two buttons">
-                                            <div class="ui attached button">
+                                            <div class="ui attached button" onClick={(e) => this.props.history.push("/profile/task/"+d.id)}>
                                                 <i class="newspaper outline icon"></i>
                                                 View Task
-                                            </div>
-                                            <div class="ui attached button">
-                                                <i class="edit icon"></i>
-                                                Edit Task
                                             </div>
                                         </div>
                                     </div>
