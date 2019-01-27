@@ -139,7 +139,7 @@ function createDefaultUser() {
         Email: "jharriet@gmail.com",
         Description: "Hard worker who is willing to learn whatever it takes to get the job done right",
         Location: "Johns Creek, GA",
-        PowerLevel: parseInt(Math.random() * 15 + 5),
+        PowerLevel: 14,
         ProfilePic: "/images/people/daniel.jpg",
         HighSchool: "Freemont High School",
         Skills: ["Java", "C++", "Python", "Arduino"],
