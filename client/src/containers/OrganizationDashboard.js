@@ -263,7 +263,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                         <h2 className="ui header">Pending Applications for Tasks</h2>
                         <div className="ui divider"></div>
@@ -293,7 +293,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                         <h2 className="ui header">Ongoing Tasks</h2>
                         <div className="ui divider"></div>
@@ -323,7 +323,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                         <h2 className="ui header">Completed Tasks</h2>
                         <div className="ui divider"></div>
@@ -353,7 +353,7 @@ class OrganizationDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     </div>
                 </div>
