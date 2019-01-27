@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import '../styles/Semantic/semantic.min.css';
 
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from './Home';
 import Quiz from './Quiz';
@@ -18,13 +18,15 @@ import WriteReport from './WriteReport';
 import TaskProfile from './TaskProfile';
 import StudentResources from './StudentResources';
 
+import Navbar from './Navbar';
+
 import {UserContext} from './UserContext';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userID: 'Sa871ME92peR91C6X',
+      userID: "Sa871ME92peR91C6X",
       updateUserID: (id) => this.updateUserID(id)
     }
   }
@@ -41,23 +43,9 @@ class App extends Component {
         <UserContext.Provider value={this.state}>
           <Router>
             <div>
-              <nav class="ui secondary pointing menu teal inverted" style={{position: "relative", zIndex: 10}}>
-                <NavLink className="item" activeClassName="item active" to="/" exact>Home</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/challenges/" exact> Challenges</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/dashboard/student/">Student Dashbo</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/profile/organization/" exact>Org list</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/dashboard/organization/">Organization Dashbo</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/profile/student/" >Student List</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/login/">Login</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/WriteReport/">WriteReport</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/resources/">StudentResources</NavLink>
-
-                <div className="right menu">
-                  <a className="ui item">
-                    Logout
-                  </a>
-                </div>
-              </nav>
+              <Route render={({ location }) => {
+                return (location.pathname !== '/login/' && location.pathname !== '/login' && location.pathname !== ('/')) ? <Navbar/> : null
+              }} />
 
               <Route path="/" exact component={Home} />
               <Route path="/home" component={Home} />

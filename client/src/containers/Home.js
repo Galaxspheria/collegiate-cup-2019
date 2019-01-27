@@ -8,6 +8,9 @@ class Home extends Component {
     return (
         <div className="Home">
           <div className="ui container midz title-header">
+            <div style={{textAlign: "right"}}>
+              <button onClick={() => this.props.history.push("/login/")} className="ui black basic button">Sign In</button>
+            </div>
             <h1 style={{fontSize: 40}}>Project Shatter</h1>
             <div className="ui teal inverted segment" style={{display: "inline-block"}}>
               <h3>Breaking down barriers</h3>

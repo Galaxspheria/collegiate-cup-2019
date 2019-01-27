@@ -1,5 +1,4 @@
 .App {
-
 }
 
 .page-height {
@@ -80,4 +79,23 @@
 
 .force-black-text {
   color: black;
+}
+
+.StudentList {
+  margin-top: -12px;
+  padding-top: 12px;
+}
+
+.right-div-b {
+  border-right: 1px solid rgba(34, 36, 38, .15) !important;
+}
+
+.teal-div-b {
+  background-color: #00b5ad !important;
+  color: white !important;
+}
+
+.ui.teal.menu .active.item.teal-div-b-active {
+  background-color: #00827c !important;
+  color: white !important;
 }
