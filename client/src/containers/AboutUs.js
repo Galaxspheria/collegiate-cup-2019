@@ -98,6 +98,20 @@ class AboutUs extends Component {
               </div>
             </div>
           </div>
+          <footer class="ui secondary pointing menu floating-footer">
+            <div className="ui footer-img image">
+              <img src="/images/gaOutline.png"/>
+            </div>
+            <div className="floater-text"><strong>Join Us Today</strong></div>
+            <div className="right menu">
+              <div className="floater-text">I am a...</div>
+              <div className="ui buttons floater-buttons">
+                <button onClick={() => this.props.history.push("/login/")} className="ui teal button">High School Student</button>
+                <div className="or"></div>
+                <button onClick={() => this.props.history.push("/login/")} className="ui teal button">Small Business Owner</button>
+              </div>
+            </div>
+          </footer>
         </div>
     );
   }
