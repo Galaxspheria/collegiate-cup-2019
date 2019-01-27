@@ -48,7 +48,7 @@ class CompanyList extends Component {
                 <div className="ui link four stackable cards">
                     {this.state.users.map((s) => (
                         // @TODO: replace the href with the real server link
-                        <Link key={s.id} className="fluid card" to={"/CompanyProfile/" + s.id}>
+                        <Link key={s.id} className="fluid card" to={"/profile/organization/" + s.id}>
                             <div className="image">
                                 <img src={s.Logo}></img>
                             </div>

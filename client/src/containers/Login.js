@@ -16,9 +16,9 @@ class Login extends Component {
         setTimeout(() => {
             const pw = this.refs.password.value.slice(0,1)[0];
             if (pw === "s" || pw === "S") {
-                that.props.history.push("/StudentProfile/bzflVhB71cgTN7GiXiUd")
+                that.props.history.push("/dashboard/student/")
             } else if (pw === "c" || pw === "C") {
-                that.props.history.push("/CompanyProfile")
+                that.props.history.push("/dashboard/organization/")
             } else {
                 that.setState({error: "Your username or password is incorrect.", loading: false})
             }

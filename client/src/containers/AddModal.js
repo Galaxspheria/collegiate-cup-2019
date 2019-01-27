@@ -34,7 +34,7 @@ class AddModal extends Component {
             Skills: this.refs.skills.value.split(",").map(str => str.trim())
         })
         .then((res) => {
-            this.props.history.push("/TaskProfile/" + res.id)
+            this.props.history.push("/task/profile/" + res.id)
         });
     };
     state = { open: false }

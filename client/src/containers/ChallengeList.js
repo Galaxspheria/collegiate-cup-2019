@@ -8,7 +8,7 @@ const data = [
         xp: 150,
         icon: "sort alphabet down",
         desc: 'A handful of words have their letters in alphabetical order, that is, nowhere in the word do you change direction if you were to scan along the English alphabet. An example is the word "almost", which has its letters in alphabetical order...',
-        link: "/quiz"
+        link: "/challenges/127"
     }, {
         title: "Circular Array",
         xp: 100,

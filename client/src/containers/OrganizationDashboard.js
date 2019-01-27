@@ -146,10 +146,10 @@ const companyName = [
 ]
 
 // make a pending applications section
-class CompanyProfile extends Component {
+class OrganizationDashboard extends Component {
   render() {
     return (
-        <div className="CompanyProfile">
+        <div className="OrganizationDashboard">
             <div className="ChallengeList pattern-bg">
                 <div className="ui grid container page-height">
                     <div className="three wide teal column">
@@ -324,4 +324,4 @@ class CompanyProfile extends Component {
   }
 }
 
-export default CompanyProfile;
+export default OrganizationDashboard;

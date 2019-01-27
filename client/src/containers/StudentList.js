@@ -52,7 +52,7 @@ class StudentList extends Component {
                     <div className="ui link four stackable cards">
                         {this.state.users.map((s) => (
                             // @TODO: replace the href with the real server link
-                            <Link key={s.id} className="fluid card" to={"/StudentProfile/" + s.id}>
+                            <Link key={s.id} className="fluid card" to={"/profile/student/" + s.id}>
                                 <div className="image">
                                     <img src={s.ProfilePic}></img>
                                 </div>
