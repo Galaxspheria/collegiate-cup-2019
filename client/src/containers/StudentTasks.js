@@ -171,54 +171,78 @@ class StudentTasks extends Component {
     }
     
     onCollectionUpdate = (querySnapshot) => {
-        const tasks = [];
-        querySnapshot.forEach((doc) => {
-            const {
-                AcceptedUser,
-                Category,
-                CompanyName,
-                DateCreated,
-                Description,
-                ServiceHours,
-                Skills,
-                Status,
-                Title,
-                Wage,
-                AppliedUsers
-            } = doc.data();
-            tasks.push({
-                id: doc.id,
-                AcceptedUser,
-                Category,
-                CompanyName,
-                DateCreated,
-                Description,
-                ServiceHours,
-                Skills,
-                Status,
-                Title,
-                Wage,
-                AppliedUsers
+        var student;
+        const that = this;
+        this.stuRef.get().then(function (doc) {
+            if (doc.exists) {
+                that.setState({
+                    student: doc.data()
+                })
+                return doc.data()
+            } else {
+              console.log("No such document!"); // TODO: 404
+              return null
+            }
+          })
+        .then((student) => {
+            const tasks = [];
+            querySnapshot.forEach((doc) => {
+                const {
+                    AcceptedUser,
+                    Category,
+                    CompanyName,
+                    DateCreated,
+                    Description,
+                    ServiceHours,
+                    Skills,
+                    Status,
+                    Title,
+                    Wage,
+                    AppliedUsers,
+                    TaskIDs
+                } = doc.data();
+                tasks.push({
+                    id: doc.id,
+                    TaskIDs,
+                    AcceptedUser,
+                    Category,
+                    CompanyName,
+                    DateCreated,
+                    Description,
+                    ServiceHours,
+                    Skills,
+                    Status,
+                    Title,
+                    Wage,
+                    AppliedUsers
+                });
             });
-        });
-        this.setState({
-            tasks
-        });
-        this.filterTasks(tasks, null)
+            that.setState({
+                tasks
+            });
+            return((tasks, student))
+        })
+        .then((res) => {
+            that.filterTasks(res[0], res[1])
+        })
+        .catch(function (error) {
+            console.log("Error getting document:", error);
+        })
+      
     }
     
     componentDidMount() {
         const that = this;
         this.unsubscribe = this.taskRef.onSnapshot(this.onCollectionUpdate);
         this.stuRef.get().then(function (doc) {
-          if (doc.exists) {
-            that.setState({student: doc.data()})
-            that.filterTasks(null, doc.data())
-          } else {
-            console.log("No such document!"); // TODO: 404
-          }
-        }).catch(function (error) {
-          console.log("Error getting document:", error);
+            if (doc.exists) {
+                that.setState({student: doc.data()})
+                that.filterTasks(null, doc.data())
+            } else {
+                console.log("No such document!"); // TODO: 404
+            }
+            }).catch(function (error) {
+            console.log("Error getting document:", error);
         });
     }
     
@@ -230,13 +254,10 @@ class StudentTasks extends Component {
             var appliedProjects = []
             var onProjects = []
             for (var i = 0; i < tasks.length; i++) {
-                console.log(student.TaskIDs, tasks[i])
                 if (student.TaskIDs.includes(tasks[i].id)) {
-                    console.log("hehe")
                     if (tasks[i].AcceptedUser === "Sa871ME92peR91C6X") {
                         onProjects.push(tasks[i])
                     } else if (tasks[i].AppliedUsers.includes("Sa871ME92peR91C6X")) {
-                        console.log("mega yee")
                         appliedProjects.push(tasks[i])
                     } 
                 } else if (tasks[i].Status === "Open" || tasks[i].Status === "Pending") {
@@ -252,6 +273,50 @@ class StudentTasks extends Component {
         }
     }
 
+    apply(d) {
+        this.setState({
+            student: {
+                TaskIDs: this.state.student.TaskIDs + [d.id],
+                ...this.state.student
+            }
+        })
+        var batch = firebase.firestore().batch();
+        var userRef = firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X");
+        batch.update(userRef, {TaskIDs: firebase.firestore.FieldValue.arrayUnion(d.id)});
+        var taskRef = firebase.firestore().collection("Tasks").doc(d.id);
+        batch.update(taskRef, {AppliedUsers: firebase.firestore.FieldValue.arrayUnion("Sa871ME92peR91C6X"),
+        Status: "Pending"});
+        batch.commit();
+        
+
+        // firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X").update({
+        //     TaskIDs: firebase.firestore.FieldValue.arrayUnion(d.id)
+        // })
+        // firebase.firestore().collection("Tasks").doc(d.id).update({
+        //     AppliedUsers: firebase.firestore.FieldValue.arrayUnion("Sa871ME92peR91C6X"),
+        //     Status: "Pending"
+            
+        // })
+    }
+
+    cancelapp(d) {
+        var batch = firebase.firestore().batch();
+        var userRef = firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X");
+        batch.update(userRef, {TaskIDs: firebase.firestore.FieldValue.arrayRemove(d.id)});
+        var taskRef = firebase.firestore().collection("Tasks").doc(d.id);
+        batch.update(taskRef, {AppliedUsers: firebase.firestore.FieldValue.arrayRemove("Sa871ME92peR91C6X"),
+        Status: "Open"});
+        batch.commit();
+
+        // firebase.firestore().collection("Tasks").doc(d.id).update({
+        //     AppliedUsers: firebase.firestore.FieldValue.arrayRemove("Sa871ME92peR91C6X"),
+        //     Status: "Pending"
+        // })
+        // firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X").update({
+        //     TaskIDs: firebase.firestore.FieldValue.arrayRemove(d.id)
+        // })
+        
+    }
 
   render() {
     return (
@@ -320,7 +385,7 @@ class StudentTasks extends Component {
                                     <i className="newspaper outline icon"></i>
                                             View Task
                                     </div>
-                                    <div className="ui right attached button red">
+                                    <div className="ui right attached button red" onClick={(e) => this.cancelapp(d)}>
                                     <i className="ban icon"></i>
                                             Cancel App
                                     </div>
