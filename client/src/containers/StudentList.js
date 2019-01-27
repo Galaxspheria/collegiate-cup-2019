@@ -21,7 +21,8 @@ class StudentList extends Component {
                 LastName,
                 ExperienceLevel,
                 Description,
-                Location
+                Location,
+                ProfilePic
             } = doc.data();
             users.push({
                 id: doc.id,
@@ -32,7 +33,7 @@ class StudentList extends Component {
                 ExperienceLevel,
                 Description,
                 Location,
-                ProfilePic: "/images/image.png"
+                ProfilePic
             });
         });
         this.setState({
