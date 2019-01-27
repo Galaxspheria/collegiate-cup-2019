@@ -153,18 +153,21 @@ function createDefaultUser() {
 }
 
 // create default company
-const companyRef = firestore.collection("Companies");
-    companyRef.doc("Ca871ME9#2peR91C6X")({
-        Name: "Google",
-        Description: "Make science fiction a reality",
-        Website: "www.google.com",
-        Logo: "/images/google.png",
-        Email: "google@gmail.com",
-        Location: "Athens, GA"
-    })
-    .then(function(docRef) {
-        console.log("Document written ");
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
+createDefaultCompany();
+function createDefaultCompany() {
+    const companyRef = firestore.collection("Companies");
+        companyRef.doc("Ca871ME9#2peR91C6X")({
+            Name: "Google",
+            Description: "Make science fiction a reality",
+            Website: "www.google.com",
+            Logo: "/images/google.png",
+            Email: "google@gmail.com",
+            Location: "Athens, GA"
+        })
+        .then(function(docRef) {
+            console.log("Document written ");
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+}
