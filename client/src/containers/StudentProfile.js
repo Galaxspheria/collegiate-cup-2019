@@ -41,9 +41,11 @@ class StudentProfile extends Component {
                   <br></br>
                   Location: {this.state.user.Location}
                   <br></br>
-                  Power Lever: {this.state.user.PowerLevel}
+                  Power Level: {this.state.user.PowerLevel}
                   <br></br>
-                  Specialities: 
+                  Skills: {this.state.user.Skills.map((item) =>
+                        <div class="ui label yellow">{item}</div>
+                  )}
                   <br></br>
                   Bio: {this.state.user.Description}
                   </div>
