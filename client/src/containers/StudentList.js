@@ -8,7 +8,8 @@ class StudentList extends Component {
         this.ref = firebase.firestore().collection('Users');
         this.unsubscribe = null;
         this.state = {
-            users: []
+            users: [],
+            filteredUsers: []
         };
     }
 
@@ -22,7 +23,8 @@ class StudentList extends Component {
                 ExperienceLevel,
                 Description,
                 Location,
-                ProfilePic
+                ProfilePic,
+                Skills
             } = doc.data();
             users.push({
                 id: doc.id,
@@ -33,17 +35,54 @@ class StudentList extends Component {
                 ExperienceLevel,
                 Description,
                 Location,
-                ProfilePic
+                ProfilePic,
+                Skills
             });
         });
         this.setState({
-            users
+            users,
+            filteredUsers: users
         });
     }
 
     componentDidMount() {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
+
+    search() {
+        const filter = this.refs.searchtextbox.value.toLowerCase();
+
+        const users = [];
+        const filteredUsers = [];
+            this.state.users.forEach((doc) => {
+                // actual filters
+                var found = false;
+                        for(var i = 0; i < doc.Skills.length; i++) {
+                            if((doc.Skills[i]).toLowerCase().includes(filter) && !found) {
+                                //console.log(doc.id, " => ", doc.data().Skills[i]);
+                                found = true;
+                                filteredUsers.push(doc);
+                                console.log(doc.Skills[i]);
+                            }
+                        }
+                        if((doc.FirstName).toLowerCase().includes(filter) && !found) {
+                            //console.log(doc.id, " => ", doc.data().FirstName);
+                            filteredUsers.push(doc);
+                            console.log(doc.FirstName);
+            
+                        } else if((doc.LastName).toLowerCase().includes(filter) && !found) {
+                            //console.log(doc.id, " => ", doc.data().LastName);
+                            filteredUsers.push(doc);
+                            console.log(doc.LastName);
+                        }
+                        console.log(filteredUsers);
+            });
+            this.setState({
+                filteredUsers
+            });
+    }
+
+    
 
     render() {
         return (
@@ -52,14 +91,15 @@ class StudentList extends Component {
                     <div className="field">
                         <div className="ui search">
                             <div className="ui icon input">
-                            <input type="text" placeholder="Task Title"></input>
-                            {/* <i className="search icon"></i> */}
+                            <input ref ="searchtextbox"type="text" onChange={() => this.search()} placeholder="Task Title"></input>
+                            {/* <button ref="searchsubmitbutton" onClick={() => this.search()}>submit</button> */}
+                            <i className="search icon"></i>
                             </div>
                             <div className="results"></div>
                         </div>
                     </div>
                     <div className="ui link four stackable cards">
-                        {this.state.users.map((s) => (
+                        {this.state.filteredUsers.map((s) => (
                             // @TODO: replace the href with the real server link
                             <Link key={s.id} className="fluid card" to={"/profile/student/" + s.id}>
                                 <div className="image">

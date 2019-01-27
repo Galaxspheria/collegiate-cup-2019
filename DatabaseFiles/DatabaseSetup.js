@@ -23,11 +23,11 @@ var config = {
   var firestore = firebase.firestore();
 
 // Initial Setup for Tasks
-createTasks(["Swift","Xcode"], 0, "Angry Birds UI", "Rovio Entertainment", "Developing a settings menu", "$250", null, null, "open", "January 24, 2019", "iOS App Development");
-createTasks(["Java"], 0, "Bubble Sort Algorithm", "Dave's Grocerie's", "Designing an algorithm to sort items in a grocery store", "$40", null, null, "open", "January 26, 2019", "Data Processing");
-createTasks(["HTML"], 16, "SYFS Web Designer", "Shrewsbury Youth and Family Services", "Creating a basic website for SYFS", "$0", null, null, "open", "January 17, 2019", "Web Development");
-createTasks(["Python"], 16, "Library Organizer", "ArgoAI", "Creating an organized system of folders for our files", "$50", null, null, "open", "January 11, 2019", "Data Processing");
-createTasks(["Android Studio", "Java"], 16, "Android App Developer", "Supercell", "Implementing the next update for Clash of Clans", "$100", null, null, "open", "January 18, 2019", "Android App Development");
+createTasks(["Swift","Xcode"], 0, "Angry Birds UI", "Rovio Entertainment", "Developing a settings menu", 250, null, null, "Open", "January 24, 2019", "iOS App Development");
+createTasks(["Java"], 0, "Bubble Sort Algorithm", "Dave's Grocerie's", "Designing an algorithm to sort items in a grocery store", 40, null, null, "Open", "January 26, 2019", "Data Processing");
+createTasks(["HTML"], 16, "SYFS Web Designer", "Shrewsbury Youth and Family Services", "Creating a basic website for SYFS", 0, null, null, "Open", "January 17, 2019", "Web Development");
+createTasks(["Python"], 16, "Library Organizer", "ArgoAI", "Creating an organized system of folders for our files", 50, null, null, "Open", "January 11, 2019", "Data Processing");
+createTasks(["Android Studio", "Java"], 16, "Android App Developer", "Supercell", "Implementing the next update for Clash of Clans", 100, null, null, "Open", "January 18, 2019", "Android App Development");
 
 function createTasks(skills, service, title, company, description, wage, applied, accepted, status, date, category) {
     const taskRef = firestore.collection("Tasks");
@@ -38,7 +38,7 @@ function createTasks(skills, service, title, company, description, wage, applied
         CompanyName: company,
         Description: description,
         Wage: wage,
-        AppliedUsers: applied,
+        AppliedUsers: [],
         AcceptedUser: accepted,
         Status: status,
         DateCreated: date,
@@ -47,16 +47,16 @@ function createTasks(skills, service, title, company, description, wage, applied
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
         if(skills[0] =="Swift") {
-            createCompanies("Dave's Groceries", "We have some of the most diverse options in Southern GA", "www.DavesGroceries.com", "/images/daves.png", docRef.id, "daves@gmail.com", "Buford, GA");
+            createCompanies("Dave's Groceries", "We have some of the most diverse options in Southern GA", "www.DavesGroceries.com", "/images/daves.png", [docRef.id], "daves@gmail.com", "Buford, GA");
         } else if(skills[0] == "Java"){
-            createCompanies("Rovio Entertainment", "All the news that's fit to fly!", "http://www.rovio.com/", "/images/rovio.png", docRef.id, "rovio@gmail.com", "Atlanta, GA");
+            createCompanies("Rovio Entertainment", "All the news that's fit to fly!", "http://www.rovio.com/", "/images/rovio.png", [docRef.id], "rovio@gmail.com", "Atlanta, GA");
         } else if(skills[0] == "HTML"){
             createCompanies("Shrewsbury Youth and Family Services", "The mission of Shrewsbury Youth and Family Services, Inc. (SYFS) is provide counseling and other supportive services to members of our community.",
-"http://www.syfs-ma.org/mission--history.html", "/images/syfs.png", docRef.id, "syfs@gmail.com", "Shrewsbury, GA");
+"http://www.syfs-ma.org/mission--history.html", "/images/syfs.png", [docRef.id], "syfs@gmail.com", "Shrewsbury, GA");
         } else if(skills[0] == "Python"){
-            createCompanies("Argo AI", "Developing the future of self driving cars", "www.ArgoAI.com", "/images/argoai.png", docRef.id, "argoai@gmail.com", "Norcross, GA");
+            createCompanies("Argo AI", "Developing the future of self driving cars", "www.ArgoAI.com", "/images/argoai.png", [docRef.id], "argoai@gmail.com", "Norcross, GA");
         } else if(skills[0] == "Android Studio"){
-            createCompanies("Supercell", "The best mobile app developers in the world!", "www.supercell.com", "/images/supercell.png", docRef.id, "supercell@gmail.com", "Cartersville, GA");
+            createCompanies("Supercell", "The best mobile app developers in the world!", "www.supercell.com", "/images/supercell.png", [docRef.id], "supercell@gmail.com", "Cartersville, GA");
         }
     })
     .catch(function(error) {
@@ -77,7 +77,8 @@ for(var i = 0; i < 5; i++) {
         PowerLevel: parseInt(Math.random() * 35 + 5),
         ProfilePic: icons[i],
         HighSchool: highSchools[i],
-        Skills: skills[i]
+        Skills: skills[i],
+        TaskIDs: []
     })
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -99,13 +100,11 @@ function createCompanies(name, description, website, logo, id, email, location) 
         Website: website,
         Logo: logo,
         Email: email,
-        Location: location
+        Location: location,
+        TaskIDs: id
     })
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
-        companyRef.doc(docRef.id).collection("Tasks").doc(id).set({
-            
-        })
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
@@ -120,7 +119,8 @@ function createDemoCompany(name, description, website, logo, email, location) {
         Website: website,
         Logo: logo,
         Email: email,
-        Location: location
+        Location: location,
+        TaskIDs: []
     })
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -142,7 +142,8 @@ function createDefaultUser() {
         PowerLevel: parseInt(Math.random() * 15 + 5),
         ProfilePic: "/images/people/daniel.jpg",
         HighSchool: "Freemont High School",
-        Skills: ["Java", "C++", "Python", "Arduino"]
+        Skills: ["Java", "C++", "Python", "Arduino"],
+        TaskIDs: []
     })
     .then(function(docRef) {
         console.log("Document written ");
@@ -162,7 +163,8 @@ function createDefaultCompany() {
             Website: "www.google.com",
             Logo: "/images/google.png",
             Email: "google@gmail.com",
-            Location: "Athens, GA"
+            Location: "Athens, GA",
+            TaskIDs: []
         })
         .then(function(docRef) {
             console.log("Default Company Document written ");

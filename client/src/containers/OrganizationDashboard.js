@@ -2,162 +2,19 @@ import React, { Component } from 'react';
 import AddModal from './AddModal';
 import firebase from "../components/Firebase";
 
-// Make sure to only pull data from the database that matches this company
-// const data = [
-//     {
-//         Company: "YeEt DoRiTe",
-//         id: 0,
-//         icon: "/images/image.png",
-//         tasks0: [
-//             {
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ],
-//         tasks1: [
-//             {
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ],
-//         tasks2: [
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ],
-//         tasks3: [
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             },
-//             {
-//                 Company: "YeEt DoRiTe",
-//                 Title:"yeet the yote",
-//                 Wage: 123,
-//                 Description: "This is an amazing description to describe the description of the task that the company wishes to be done completely, well and better than ever before",
-//                 Location: "",
-//                 Category: "Website Design",
-//                 Date: "1/11/19"
-//             }
-//         ]
-//     }
-// ]
-
-// const companyName = [
-//     {Company: "YeEt DoRiTe"}
-// ]
-
 // make a pending applications section
 class OrganizationDashboard extends Component {
     constructor(props) {
         super(props);
-        this.orgRef = firebase.firestore().collection('Companies').doc("XUO9afmO8dmrSqVfBmYC");
+        this.orgRef = firebase.firestore().collection('Companies').doc("Ca871ME92peR91C6X");
         this.taskRef = firebase.firestore().collection('Tasks');
         this.unsubscribe = null;
         this.state = {
             open: [],
             pending: [],
             in_progress: [],
-            completed: []
+            completed: [],
+            filteredTasks: []
         }
       }
     
@@ -209,7 +66,8 @@ class OrganizationDashboard extends Component {
             });
         });
         this.setState({
-            allTasks
+            allTasks,
+            filteredTasks: allTasks
         });
         this.filterTasks(allTasks, null)
     }
@@ -246,6 +104,36 @@ class OrganizationDashboard extends Component {
         }
     }
 
+    search() {
+        const filter = this.refs.filtersearchbar.value.toLowerCase();
+
+        const allTasks = [];
+        const filteredTasks = [];
+            this.state.allTasks.forEach((doc) => {
+                // actual filters
+                
+                if((doc.Title).toLowerCase().includes(filter)) {
+                    //console.log(doc.id, " => ", doc.data().FirstName);
+                    filteredTasks.push(doc);
+    
+                } else if((doc.Status).toLowerCase().includes(filter)) {
+                    filteredTasks.push(doc);
+                } else {
+                    for(var i = 0; i < doc.Skills.length; i++) {
+                        if(doc.Skills[i].toLowerCase().includes(filter)) {
+                            filteredTasks.push(doc);
+                            return;
+                        }
+                    }
+                }
+                console.log(filteredTasks);
+            });
+            this.setState({
+                filteredTasks
+            });
+            this.filterTasks(filteredTasks, null)
+    }
+
   render() {
     return (
         <div className="OrganizationDashboard">
@@ -254,15 +142,21 @@ class OrganizationDashboard extends Component {
             <div className="ChallengeList pattern-bg">
                 <div className="ui grid container page-height">
                     <div className="three wide teal column">
-                        <h4 className="ui header">Company Profile Navbar</h4>
-                        <div className="ui container">
-                            Add search features
+                        <div className="ui centered header">
+                            <h3 className="ui header">Filter Tasks</h3>
+                        </div>
+                        <div class="ui search">
+                            <div class="ui icon input">
+                                <input class="prompt" ref="filtersearchbar" type="text" onChange={() => this.search()} placeholder="Search by skill or name..."></input>
+                                <i class="search icon"></i>
+                            </div>
+                            <div class="results"></div>
                         </div>
                     </div>
                     <div className="thirteen wide white column scroll-list">
                     <div className="ui inline container">
                         <h1 className="ui header" style={{display: "inline-block"}}>{this.state.company.Name}</h1>
-                        <img className="ui image right floated" src={this.state.company.icon} style={{display: "inline-block"}} height="50px" width="50px"></img>
+                        <img className="ui image right floated" src={this.state.company.Logo} style={{display: "inline-block"}} height="50px" width="50px"></img>
                     </div>
                         <div className="ui placeholder segment">
                             <div className="ui two column stackable center aligned grid">
@@ -283,7 +177,7 @@ class OrganizationDashboard extends Component {
                                         <div className="field">
                                         <div className="ui search">
                                             <div className="ui icon input">
-                                            <input className="prompt" type="text" placeholder="Search names, skills, ..."></input>
+                                            <input className="prompt" type="text" placeholder="Search skills, ..."></input>
                                             <i className="search icon"></i>
                                             </div>
                                             <div className="results"></div>
@@ -302,7 +196,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>
@@ -332,7 +226,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>
@@ -362,7 +256,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>
@@ -392,7 +286,7 @@ class OrganizationDashboard extends Component {
                                         <div className="header">{d.Title}</div>
                                         <div className="meta">
                                             <span className="price left floated">${d.Wage}</span>
-                                            <span className="stay right floated">Posted On: {d.Date} </span>
+                                            <span className="stay right floated">Posted: {d.DateCreated} </span>
                                         </div>
                                         <div className="description ui">
                                         <span >{d.Description}</span>

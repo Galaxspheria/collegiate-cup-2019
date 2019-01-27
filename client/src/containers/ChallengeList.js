@@ -74,7 +74,16 @@ class ChallengeList extends Component {
       <div className="ChallengeList pattern-bg">
         <div className="ui grid container page-height">
             <div className="three wide teal column">
-                <h4 className="ui header">FILTER</h4>
+            <div className="ui centered header">
+            <h3 className="ui header">Filter Challenges</h3>
+            </div>
+                <div class="ui search">
+                    <div class="ui icon input">
+                        <input class="prompt" type="text" placeholder="Search by skill..."></input>
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                </div>
             </div>
             <div className="thirteen wide white column scroll-list">
                 <h2 className="ui header">My Challenges</h2>
