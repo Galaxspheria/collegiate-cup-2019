@@ -133,7 +133,7 @@ function createDemoCompany(name, description, website, logo, email, location) {
 createDefaultUser();
 function createDefaultUser() {
     const defaultRef = firestore.collection("Users");
-    defaultRef.doc("Sa871ME9#2peR91C6X").set({
+    defaultRef.doc("Sa871ME92peR91C6X").set({
         FirstName: "Jackson",
         LastName: "Harriet",
         Email: "jharriet@gmail.com",
@@ -156,7 +156,7 @@ function createDefaultUser() {
 createDefaultCompany();
 function createDefaultCompany() {
     const companyRef = firestore.collection("Companies");
-        companyRef.doc("Ca871ME9#2peR91C6X").set({
+        companyRef.doc("Ca871ME92peR91C6X").set({
             Name: "Google",
             Description: "Make science fiction a reality",
             Website: "www.google.com",
