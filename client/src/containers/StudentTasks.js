@@ -246,6 +246,45 @@ class StudentTasks extends Component {
         });
     }
     
+    onCollectionUpdate = (querySnapshot) => {
+        const allTasks = [];
+        querySnapshot.forEach((doc) => {
+            const {
+                AcceptedUser,
+                AppliedUsers,
+                Category,
+                Description,
+                CompanyName,
+                DateCreated,
+                ServiceHours,
+                Skills,
+                Status,
+                Title,
+                Wage
+            } = doc.data();
+            allTasks.push({
+                id: doc.id,
+                doc, // DocumentSnapshot,
+                AcceptedUser,
+                AppliedUsers,
+                Category,
+                Description,
+                CompanyName,
+                DateCreated,
+                ServiceHours,
+                Skills,
+                Status,
+                Title,
+                Wage
+            });
+        });
+        this.setState({
+            allTasks,
+            filteredTasks: allTasks
+        });
+        this.filterTasks(allTasks, null)
+    }
+
     filterTasks(t, c) {
         var tasks = t || this.state.tasks
         var student = c || this.state.student
@@ -318,16 +357,70 @@ class StudentTasks extends Component {
         
     }
 
+    search() {
+        const filter = this.refs.filtersearchbar.value.toLowerCase();
+
+        const allTasks = [];
+        const filteredTasks = [];
+            this.state.allTasks.forEach((doc) => {
+                // actual filters
+                
+                if((doc.Title).toLowerCase().includes(filter)) {
+                    //console.log(doc.id, " => ", doc.data().FirstName);
+                    filteredTasks.push(doc);
+    
+                } else if((doc.Status).toLowerCase().includes(filter)) {
+                    filteredTasks.push(doc);
+                } else {
+                    for(var i = 0; i < doc.Skills.length; i++) {
+                        if(doc.Skills[i].toLowerCase().includes(filter)) {
+                            filteredTasks.push(doc);
+                            return;
+                        }
+                    }
+                }
+                console.log(filteredTasks);
+            });
+            this.setState({
+                filteredTasks
+            });
+            this.filterTasks(filteredTasks, null)
+    }
+
   render() {
     return (
       <div className="ChallengeList pattern-bg">
       <div className="ui grid container page-height">
           <div className="three wide teal column">
-              <h4 className="ui header">FILTER</h4>
+                <div className="ui centered header">
+                            <h3 className="ui header">Filter Tasks</h3>
+                        </div>
+                        <div class="ui search">
+                            <div class="ui icon input">
+                                <input class="prompt" ref="filtersearchbar" type="text" onChange={() => this.search()} placeholder="Search by skill or name..."></input>
+                                <i class="search icon"></i>
+                            </div>
+                        <div class="results"></div>
+                </div>
           </div>
             
             <div className="thirteen wide white column scroll-list">
             <div className="thirteen wide white column">
+                {this.state.student
+                    ? 
+                    <div className="ui inline container">
+                        <h1 className="ui header" style={{display: "inline-block"}}>{this.state.student.FirstName + " " + this.state.student.LastName}</h1>
+                        <img className="ui image right floated" src={this.state.student.ProfilePic} style={{display: "inline-block"}} height="50px" width="50px"></img>
+                        <p className="right floated">
+                            <i className="bolt icon"></i>
+                            {this.state.student.PowerLevel}
+                        </p>
+                    </div>
+                    :
+                    <div className="ui equal width centered grid container">
+                        <h2>Uh oh! That profile can't be found.</h2>
+                    </div>
+                }
                 <h2 className="ui header">Tasks I'm working on:</h2>
                 <div className="ui divider"></div>
                 <div className="ui three stackable cards centered">
