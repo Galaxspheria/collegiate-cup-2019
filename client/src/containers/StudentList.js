@@ -9,8 +9,7 @@ class StudentList extends Component {
         this.unsubscribe = null;
         this.state = {
             users: [],
-            filteredUsers: [],
-            filters: []
+            filteredUsers: []
         };
     }
 
@@ -24,7 +23,8 @@ class StudentList extends Component {
                 ExperienceLevel,
                 Description,
                 Location,
-                ProfilePic
+                ProfilePic,
+                Skills
             } = doc.data();
             users.push({
                 id: doc.id,
@@ -35,11 +35,13 @@ class StudentList extends Component {
                 ExperienceLevel,
                 Description,
                 Location,
-                ProfilePic
+                ProfilePic,
+                Skills
             });
         });
         this.setState({
-            users
+            users,
+            filteredUsers: users
         });
     }
 
@@ -48,34 +50,36 @@ class StudentList extends Component {
     }
 
     search() {
-        const filters = this.refs.searchtextbox.value.split(" ");
+        const filter = this.refs.searchtextbox.value;
 
         const users = [];
         const filteredUsers = [];
-        for(var x = 0; x < filters.length; x++){
             this.state.users.forEach((doc) => {
                 // actual filters
                 var found = false;
                         for(var i = 0; i < doc.Skills.length; i++) {
-                            if((doc.Skills[i]).toLowerCase().includes(filters[x]) && !found) {
+                            if((doc.Skills[i]).toLowerCase().includes(filter) && !found) {
                                 //console.log(doc.id, " => ", doc.data().Skills[i]);
                                 found = true;
                                 filteredUsers.push(doc);
+                                console.log(doc.Skills[i]);
                             }
                         }
-                        if((doc.FirstName).toLowerCase().includes(filters[x]) && !found) {
+                        if((doc.FirstName).toLowerCase().includes(filter) && !found) {
                             //console.log(doc.id, " => ", doc.data().FirstName);
                             filteredUsers.push(doc);
+                            console.log(doc.FirstName);
             
-                        } else if((doc.LastName).toLowerCase().includes(filters[x]) && !found) {
+                        } else if((doc.LastName).toLowerCase().includes(filter) && !found) {
                             //console.log(doc.id, " => ", doc.data().LastName);
                             filteredUsers.push(doc);
+                            console.log(doc.LastName);
                         }
+                        console.log(filteredUsers);
             });
             this.setState({
                 filteredUsers
             });
-        }
     }
 
     
@@ -87,15 +91,15 @@ class StudentList extends Component {
                     <div className="field">
                         <div className="ui search">
                             <div className="ui icon input">
-                            <input ref ="searchtextbox"type="text" placeholder="Task Title"></input>
-                            <button ref="searchsubmitbutton" onClick={() => this.search()}>submit</button>
-                            {/* <i className="search icon"></i> */}
+                            <input ref ="searchtextbox"type="text" onChange={() => this.search()} placeholder="Task Title"></input>
+                            {/* <button ref="searchsubmitbutton" onClick={() => this.search()}>submit</button> */}
+                            <i className="search icon"></i>
                             </div>
                             <div className="results"></div>
                         </div>
                     </div>
                     <div className="ui link four stackable cards">
-                        {this.state.users.map((s) => (
+                        {this.state.filteredUsers.map((s) => (
                             // @TODO: replace the href with the real server link
                             <Link key={s.id} className="fluid card" to={"/profile/student/" + s.id}>
                                 <div className="image">
