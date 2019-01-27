@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddModal from './AddModal';
 import firebase from "../components/Firebase";
+import FeedbackModal from './FeedbackModal';
 
 // make a pending applications section
 class OrganizationDashboard extends Component {
@@ -297,10 +298,11 @@ class OrganizationDashboard extends Component {
                                                 <i class="newspaper outline icon" ></i>
                                                 View Task
                                             </div>
-                                            <div class="ui attached green button" onClick={(e) => this.complete(d)}>
+                                            <FeedbackModal complete={() => this.complete(d)}/>
+                                            {/* <div class="ui attached green button" onClick={(e) => this.complete(d)}>
                                                 <i class="flag icon" ></i>
                                                 Complete
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>

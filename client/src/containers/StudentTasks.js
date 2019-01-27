@@ -504,7 +504,10 @@ class StudentTasks extends Component {
                                     <span className="price">${d.Wage}</span>
                                     <span className="date right floated">Posted On: {d.DateCreated} </span>
                                 </div>
-                                
+
+                                <div className="description ui">
+                                {d.Description}
+                                </div>
                                 <div class="ui vertical labeled icon buttons right floated">
                                     <div class="ui button" onClick={(e) => this.props.history.push("/profile/task/"+d.id)}>
                                         <i class="newspaper icon"></i>
@@ -515,9 +518,13 @@ class StudentTasks extends Component {
                                         Apply
                                     </div>
                                 </div>
-                                <div className="description ui">
-                                {d.Description}
-                                </div>
+                                <h4>Skills:</h4> {d.Skills.map((item) =>
+                                    <div class="ui label yellow">{item}</div>
+                                )}
+
+
+                                
+                                
                                 
                             </div>
                         </div>
