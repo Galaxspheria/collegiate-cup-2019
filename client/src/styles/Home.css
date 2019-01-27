@@ -1,6 +1,6 @@
 .homepage {
     min-height: 100vh;
-    padding: 5% !important;
+    padding: 4rem !important;
 }
 
 .midz {
@@ -16,4 +16,53 @@
 
 .homepage-content {
     font-size: 1.2em;
+}
+
+.homepage-content-block {
+    font-size: 1.2em;
+    padding: 4rem;
+}
+
+.home-icon {
+    font-size: 10rem !important;
+    height: auto !important;
+}
+
+.home-icon-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.center-image {
+    margin: auto;
+    text-align: center;
+    display: block !important;
+}
+
+.ga-img {
+    margin: auto;
+    width: 20%;
+}
+
+.floating-footer {
+    position: fixed !important;
+    bottom: 0;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin: 0 !important;
+    padding: 1rem;
+    background-color: white !important;
+    border-top: 2px solid #00b5ad !important;
+    box-shadow: 0 -1px 2px 0 rgba(34, 36, 38, .15) !important;
+    font-size: 1.5em !important;
+}
+
+.floater-text {
+    display: inline-block;
+    margin-top: 0.6rem;
+    margin-right: 1rem;
 }

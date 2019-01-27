@@ -72,7 +72,7 @@ class Login extends Component {
                             <div className="ui message">
                             New student?&nbsp;&nbsp;<a href="#">Enter signup code!</a>
                             <br></br>
-                            New Organization?&nbsp;&nbsp;<a href="#">Sign up!</a>
+                            New organization?&nbsp;&nbsp;<a href="#">Sign up!</a>
                             </div>
                         </div>
                     </div>
