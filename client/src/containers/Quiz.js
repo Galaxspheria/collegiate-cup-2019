@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AceEditor from 'react-ace';
+import firebase from "../components/Firebase";
 import '../styles/Quiz.css';
 
 import 'brace/mode/python';
@@ -55,6 +56,9 @@ class Quiz extends Component {
         const successCode = body.splice(0, 1)[0];
         if (successCode === "S") {
             this.setState({ finalOutput: body, finalError: [], submitting: false, submitted: true });
+            firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X").update({
+                PowerLevel: 15
+            })
         } else {
             this.setState({ finalOutput: [], finalError: body, submitting: false, submitted: true });
         }
