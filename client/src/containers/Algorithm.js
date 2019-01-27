@@ -8,6 +8,7 @@ var config = {
   };
   firebase.initializeApp(config);
   var firestore = firebase.firestore();
+  var results = [];
 
   search("o");
 
@@ -19,12 +20,15 @@ var config = {
                 if(doc.data().Skills[i].includes(key) && !found) {
                     console.log(doc.id, " => ", doc.data().Skills[i]);
                     found = true;
+                    results.add(doc);
                 }
             }
             if(doc.data().FirstName.includes(key) && !found) {
                 console.log(doc.id, " => ", doc.data().FirstName);
+                results.add(doc);
             } else if(doc.data().LastName.includes(key) && !found) {
                 console.log(doc.id, " => ", doc.data().LastName);
+                results.add(doc);
             }
         });
     });
