@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from "../components/Firebase";
 
 const currentProjects = [
   {
@@ -156,9 +157,57 @@ Date: "1/11/19"
 }
   ]
 class StudentTasks extends Component {
+    constructor(props) {
+        super(props);
+        this.ref = firebase.firestore().collection('Tasks');
+        console.log(firebase.firestore().collection('Tasks').doc('7XoViZiZgvmWuSOHGygN'))//firebase.firestore().collection('Tasks').doc('7XoViZiZgvmWuSOHGygN').update()
+        this.unsubscribe = null;
+        this.state = {
+            tasks: []
+        };
+    }
+    
+    onCollectionUpdate = (querySnapshot) => {
+        const tasks = [];
+        querySnapshot.forEach((doc) => {
+            const {
+                AcceptedUser,
+                Category,
+                CompanyName,
+                DateCreated,
+                Description,
+                ServiceHours,
+                Skills,
+                Status,
+                Title,
+                Wage
+            } = doc.data();
+            tasks.push({
+                AcceptedUser,
+                Category,
+                CompanyName,
+                DateCreated,
+                Description,
+                ServiceHours,
+                Skills,
+                Status,
+                Title,
+                Wage
+            });
+        });
+        this.setState({
+            tasks
+        });
+    }
+    
+    componentDidMount() {
+        this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    }
+    
   render() {
     return (
       <div className="ChallengeList pattern-bg">
+      {console.log(this.state.tasks)}
       <div className="ui grid container page-height">
           <div className="three wide teal column">
               <h4 className="ui header">FILTER</h4>
