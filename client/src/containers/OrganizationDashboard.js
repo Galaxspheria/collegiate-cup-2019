@@ -254,9 +254,15 @@ class OrganizationDashboard extends Component {
             <div className="ChallengeList pattern-bg">
                 <div className="ui grid container page-height">
                     <div className="three wide teal column">
-                        <h4 className="ui header">Company Profile Navbar</h4>
-                        <div className="ui container">
-                            Add search features
+                        <div className="ui centered header">
+                            <h3 className="ui header">Filter Tasks</h3>
+                        </div>
+                        <div class="ui search">
+                            <div class="ui icon input">
+                                <input class="prompt" type="text" placeholder="Search by skill..."></input>
+                                <i class="search icon"></i>
+                            </div>
+                            <div class="results"></div>
                         </div>
                     </div>
                     <div className="thirteen wide white column scroll-list">
@@ -283,7 +289,7 @@ class OrganizationDashboard extends Component {
                                         <div className="field">
                                         <div className="ui search">
                                             <div className="ui icon input">
-                                            <input className="prompt" type="text" placeholder="Search names, skills, ..."></input>
+                                            <input className="prompt" type="text" placeholder="Search skills, ..."></input>
                                             <i className="search icon"></i>
                                             </div>
                                             <div className="results"></div>
