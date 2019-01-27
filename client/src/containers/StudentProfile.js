@@ -5,7 +5,6 @@ class StudentProfile extends Component {
   constructor(props) {
     super(props);
     this.ref = firebase.firestore().collection('Users').doc(this.props.match.params.id);
-    console.log();
     this.unsubscribe = null;
     this.state = {}
   }
@@ -15,6 +14,7 @@ class StudentProfile extends Component {
     this.ref.get().then(function (doc) {
       if (doc.exists) {
         that.setState({user: doc.data()})
+        console.log(that.state);
       } else {
         console.log("No such document!"); // TODO: 404
       }

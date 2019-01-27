@@ -50,7 +50,7 @@ class App extends Component {
                 <NavLink className="item" activeClassName="item active" to="/profile/student/" >Student List</NavLink>
                 <NavLink className="item" activeClassName="item active" to="/login/">Login</NavLink>
                 <NavLink className="item" activeClassName="item active" to="/WriteReport/">WriteReport</NavLink>
-                <NavLink className="item" activeClassName="item active" to="/StudentResources/">StudentResources</NavLink>
+                <NavLink className="item" activeClassName="item active" to="/resources/">StudentResources</NavLink>
 
                 <div className="right menu">
                   <a className="ui item">
@@ -72,7 +72,7 @@ class App extends Component {
               <Route path="/login/" component={Login} />
               <Route path="/WriteReport/" component={WriteReport} />
               <Route path="/profile/task/:id" component={TaskProfile} />
-              <Route path="/StudentResources/" component={StudentResources} />
+              <Route path="/resources/" component={StudentResources} />
 
             </div>
           </Router>

@@ -59,7 +59,6 @@ class StudentResources extends Component {
               </div>
             </div>
           </div>
-          <BGParticles/>
         </div>
     );
   }
