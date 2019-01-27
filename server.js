@@ -68,7 +68,7 @@ app.post('/api/submit', (req, res) => {
             }
             testResults.push("")
             if (passed > 10) {
-                testResults.push("All tests passed, congratulations!")
+                testResults.push("All tests passed– congratulations!") // TODO: level up!
             } else {
                 testResults.push("" + passed + "/11 tests passed.")
             }
