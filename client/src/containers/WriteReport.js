@@ -6,6 +6,7 @@ class WriteReport extends Component {
     return (
         <div className="WriteReport">
             <div className="ui form">
+                <div className="ui center container">
                     <div className="three fields">
                         <div className="field">
                             <label>Student Name</label>
@@ -28,6 +29,7 @@ class WriteReport extends Component {
                             <textarea rows="2"></textarea>
                         </div>
                     </div>
+                </div>
                 </div>
         </div>
     );
