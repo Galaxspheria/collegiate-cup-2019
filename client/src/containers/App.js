@@ -17,6 +17,8 @@ import Login from './Login';
 import WriteReport from './WriteReport';
 import TaskProfile from './TaskProfile';
 import StudentResources from './StudentResources';
+import CompanyResources from './CompanyResources';
+import AboutUs from './AboutUs';
 
 import Navbar from './Navbar';
 
@@ -61,6 +63,8 @@ class App extends Component {
               <Route path="/WriteReport/" component={WriteReport} />
               <Route path="/profile/task/:id" component={TaskProfile} />
               <Route path="/resources/" component={StudentResources} />
+              <Route path="/CompanyResources/" component={CompanyResources} />
+              <Route path="/about/" component={AboutUs} />
 
             </div>
           </Router>
