@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AceEditor from 'react-ace';
 import firebase from "../components/Firebase";
+import { Header, Icon, Modal } from 'semantic-ui-react'
 import '../styles/Quiz.css';
 
 import 'brace/mode/python';
@@ -56,9 +57,14 @@ class Quiz extends Component {
         const successCode = body.splice(0, 1)[0];
         if (successCode === "S") {
             this.setState({ finalOutput: body, finalError: [], submitting: false, submitted: true });
-            firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X").update({
-                PowerLevel: 15
-            })
+            if (body[0].slice(-1) === "e") {
+                this.setState({
+                    celebrate: true
+                })
+                firebase.firestore().collection("Users").doc("Sa871ME92peR91C6X").update({
+                    PowerLevel: 15
+                })
+            }
         } else {
             this.setState({ finalOutput: [], finalError: body, submitting: false, submitted: true });
         }
@@ -165,6 +171,38 @@ class Quiz extends Component {
                             :null}
                         </div>
                     :null}
+                    <Modal open={this.state.celebrate}>
+                        <Modal.Header>Perfect Score, Congratulations!</Modal.Header>
+                        <Modal.Content>
+                        <Modal.Description>
+                            <div className="AddTask">
+                                <div className="ui center container">
+                                    <Header as='h2' icon textAlign='center'>
+                                    <Icon color='teal' name='trophy' circular />
+                                    <Header.Content>Level Up!</Header.Content>
+                                    </Header>
+                                    <Header as='h3' icon textAlign='center'>
+                                    <Header.Content>New Level: 15</Header.Content>
+                                    </Header>
+                                    Test Output:
+                                    {(this.state.finalOutput || this.state.finalError) && (this.state.finalOutput.length > 0 || this.state.finalError.length > 0)?
+                                        <div className="code-output-final">
+                                            {this.state.finalOutput.length > 0?
+                                                this.state.finalOutput.map((line) => <span className={line.slice(-5) === "false" ? "failed-text" :""}>{line}<br/></span>)
+                                            :null}
+                                            {this.state.finalError.length > 0?
+                                                this.state.finalError.map((line) => <span className="failed-text">{line}<br/></span>)
+                                            :null}
+                                        </div>
+                                    :null}
+                                    <div style={{textAlign: "right", marginTop: "1rem"}}>
+                                        <button onClick={() => this.props.history.push("/challenges/")} className="ui teal medium button">Return to Challenges</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </Modal.Description>
+                        </Modal.Content>
+                    </Modal>
                 </div>
             </div>
         );
